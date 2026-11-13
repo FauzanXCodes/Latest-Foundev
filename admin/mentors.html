@@ -1,0 +1,675 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f4ef">
+    <meta name="description" content="Manage mentors, expertise, and mentoring assignments in the Foundev Institution Workspace.">
+
+    <title>Mentors | Foundev Institution Workspace</title>
+
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="../assets/css/mentors.css">
+</head>
+
+<body class="institution-dashboard">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="institute-app">
+
+        <!-- SIDEBAR -->
+        <aside class="institute-sidebar" id="institute-sidebar" aria-label="Main navigation">
+
+            <div class="sidebar-top">
+
+                <a href="dashboard.html" class="institute-brand" aria-label="Foundev workspace home">
+                    <span class="brand-mark">
+                        <img src="../assets/images/foundev-logo.png" alt="" class="brand-logo">
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>foundev</strong>
+                        <small>Institution workspace</small>
+                    </span>
+                </a>
+
+                <div class="workspace-switcher">
+                    <span class="workspace-avatar" id="institution-initial">I</span>
+
+                    <span class="workspace-copy">
+                        <small>YOUR WORKSPACE</small>
+                        <strong id="institution-name">Your institution</strong>
+                    </span>
+
+                    <span class="workspace-indicator" aria-hidden="true">⌄</span>
+                </div>
+
+                <p class="sidebar-label">WORKSPACE</p>
+
+                <nav class="sidebar-navigation" aria-label="Workspace">
+
+                    <a href="dashboard.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            </svg>
+                        </span>
+                        <span>Overview</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="students.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="8" r="3.5"/>
+                                <path d="M2.8 20v-1.5a6.2 6.2 0 0 1 12.4 0V20"/>
+                                <path d="M16 5a3.5 3.5 0 0 1 0 6.2"/>
+                                <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                            </svg>
+                        </span>
+                        <span>Students</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="mentors.html" class="sidebar-link active" aria-current="page">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="3.5"/>
+                                <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                                <path d="m9 15 3 2 3-2"/>
+                            </svg>
+                        </span>
+                        <span>Mentors</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="projects.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                                <path d="M8 4.5v15"/>
+                                <path d="M8 9h12.5"/>
+                                <path d="M12 13h5"/>
+                                <path d="M12 16h3"/>
+                            </svg>
+                        </span>
+                        <span>Projects</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+<a href="admin-my-projects.html" class="sidebar-link">
+    <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M3 9h18M9 9v11"/>
+            <path d="m12.5 13 2 2-2 2"/>
+            <path d="M16 17h2"/>
+        </svg>
+    </span>
+    <span>My Projects</span>
+    <span class="nav-current-marker"></span>
+</a>
+
+                    <a href="assessments.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                <path d="M14.5 3.5V8H19"/>
+                                <path d="m9 14 2 2 4-4"/>
+                            </svg>
+                        </span>
+                        <span>Assessments</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                </nav>
+
+                <p class="sidebar-label sidebar-label-spaced">ADMINISTRATION</p>
+
+                <nav class="sidebar-navigation" aria-label="Administration">
+                    <a href="settings.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/>
+                            </svg>
+                        </span>
+                        <span>Settings</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <a href="mailto:support@thefoundev.com" class="sidebar-help">
+                    <span class="help-icon" aria-hidden="true">?</span>
+                    <span>
+                        <strong>Need assistance?</strong>
+                        <small>Contact Foundev support</small>
+                    </span>
+                    <span class="help-arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <div class="sidebar-account">
+
+                    <span class="account-avatar" id="admin-initial">A</span>
+
+                    <span class="account-information">
+                        <strong id="admin-name">Administrator</strong>
+                        <small id="admin-email">Loading account…</small>
+                    </span>
+
+                    <button
+                        type="button"
+                        class="account-menu-button"
+                        id="account-menu-button"
+                        aria-label="Open account menu"
+                        aria-expanded="false"
+                        aria-controls="account-menu"
+                    >···</button>
+
+                    <div class="account-menu" id="account-menu" hidden>
+                        <a href="settings.html">Account settings</a>
+                        <button type="button" id="logout-button">Sign out</button>
+                    </div>
+
+                </div>
+            </div>
+        </aside>
+
+        <button
+            type="button"
+            class="sidebar-overlay"
+            id="sidebar-overlay"
+            aria-label="Close navigation"
+            tabindex="-1"
+            hidden
+        ></button>
+
+        <!-- MAIN APPLICATION -->
+        <div class="institute-main">
+
+            <header class="institute-topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        class="sidebar-toggle"
+                        id="sidebar-toggle"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="institute-sidebar"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"/>
+                            <path d="M4 12h16"/>
+                            <path d="M4 17h16"/>
+                        </svg>
+                    </button>
+
+                    <nav class="breadcrumbs" aria-label="Breadcrumb">
+                        <span>Workspace</span>
+                        <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                        <strong aria-current="page">Mentors</strong>
+                    </nav>
+
+                </div>
+
+                <div class="topbar-right">
+                    <div class="system-status" id="system-status">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span id="system-status-text">Connecting</span>
+                    </div>
+
+                    <span class="topbar-divider" aria-hidden="true"></span>
+                    <time class="topbar-date" id="dashboard-date"></time>
+                </div>
+
+            </header>
+
+            <main class="dashboard-content mentors-page" id="main-content">
+
+                <!-- PAGE INTRO -->
+                <section class="mentors-welcome">
+
+                    <div class="mentors-heading-copy">
+
+                        <p class="page-eyebrow">
+                            <span class="eyebrow-line"></span>
+                            PEOPLE &amp; GUIDANCE
+                        </p>
+
+                        <h1>Mentors<span class="welcome-period">.</span></h1>
+
+                        <p class="mentors-intro">
+                            The people behind your students' progress.
+                            Manage mentor profiles, expertise, and mentoring
+                            relationships across your institution.
+                        </p>
+
+                    </div>
+
+                    <div class="mentors-heading-actions">
+
+                        <button
+                            type="button"
+                            class="mentors-button mentors-button-secondary"
+                            id="export-mentors-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v12"/>
+                                <path d="m7 10 5 5 5-5"/>
+                                <path d="M5 17v3h14v-3"/>
+                            </svg>
+                            <span>Export</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="mentors-button mentors-button-primary"
+                            id="add-mentor-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 5v14"/>
+                                <path d="M5 12h14"/>
+                            </svg>
+                            <span>Add mentor</span>
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- OVERVIEW -->
+                <section class="mentors-summary" aria-label="Mentor overview">
+
+                    <article class="mentors-summary-card">
+                        <div class="mentors-summary-top">
+                            <span class="mentors-summary-label">Total mentors</span>
+                            <span class="mentors-summary-icon mentor-icon-total" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="8" r="3.5"/>
+                                    <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="mentors-summary-value" id="mentors-total">—</p>
+                        <p class="mentors-summary-note">Mentors registered with your institution</p>
+                    </article>
+
+                    <article class="mentors-summary-card">
+                        <div class="mentors-summary-top">
+                            <span class="mentors-summary-label">Active mentors</span>
+                            <span class="mentors-summary-icon mentor-icon-active" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="m8 12 2.5 2.5L16 9"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="mentors-summary-value" id="mentors-active">—</p>
+                        <p class="mentors-summary-note">Mentors currently available to support students</p>
+                    </article>
+
+                    <article class="mentors-summary-card">
+                        <div class="mentors-summary-top">
+                            <span class="mentors-summary-label">Assigned mentors</span>
+                            <span class="mentors-summary-icon mentor-icon-assigned" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="8" cy="8" r="3"/>
+                                    <circle cx="17" cy="9" r="2.5"/>
+                                    <path d="M2.5 20v-1.5a5.5 5.5 0 0 1 11 0V20"/>
+                                    <path d="M15 15a4.5 4.5 0 0 1 6.5 4V20"/>
+                                </svg>
+                            </span>
+                        </div>
+                        <p class="mentors-summary-value" id="mentors-assigned">—</p>
+                        <p class="mentors-summary-note">Mentors with current assignments, if tracked</p>
+                    </article>
+
+                </section>
+
+                <!-- MENTOR DIRECTORY -->
+                <section class="mentors-directory" aria-labelledby="mentors-directory-title">
+
+                    <div class="mentors-directory-heading">
+
+                        <div>
+                            <p class="section-kicker">MENTOR DIRECTORY</p>
+                            <h2 id="mentors-directory-title">Your mentors</h2>
+                            <p class="mentors-directory-description">
+                                Find mentors by name, expertise, or email and review their current status.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="mentors-refresh-button"
+                            id="refresh-mentors-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 7v5h-5"/>
+                                <path d="M4 17v-5h5"/>
+                                <path d="M5.5 9a7 7 0 0 1 11.8-2L20 12"/>
+                                <path d="M4 12l2.7 5a7 7 0 0 0 11.8-2"/>
+                            </svg>
+                            <span>Refresh</span>
+                        </button>
+
+                    </div>
+
+                    <!-- SEARCH AND FILTERS -->
+                    <div class="mentors-toolbar">
+
+                        <div class="mentors-search-wrap">
+
+                            <label for="mentor-search" class="visually-hidden">
+                                Search mentors
+                            </label>
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="10.8" cy="10.8" r="6.8"/>
+                                <path d="m16 16 4.5 4.5"/>
+                            </svg>
+
+                            <input
+                                type="search"
+                                id="mentor-search"
+                                name="search"
+                                placeholder="Search by name, email or expertise…"
+                                maxlength="150"
+                                autocomplete="off"
+                            >
+
+                            <kbd class="mentors-search-shortcut" aria-hidden="true">/</kbd>
+
+                        </div>
+
+                        <div class="mentors-filter-group">
+
+                            <label for="mentor-status-filter" class="visually-hidden">
+                                Filter mentors by status
+                            </label>
+
+                            <select id="mentor-status-filter" name="status">
+                                <option value="">All statuses</option>
+                                <option value="active">Active</option>
+                                <option value="pending">Pending</option>
+                                <option value="suspended">Suspended</option>
+                            </select>
+
+                            <label for="mentor-sort" class="visually-hidden">
+                                Sort mentors
+                            </label>
+
+                            <select id="mentor-sort" name="sort">
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
+                                <option value="name-asc">Name A–Z</option>
+                                <option value="name-desc">Name Z–A</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RESULTS -->
+                    <div class="mentors-results-bar">
+                        <p id="mentors-result-count" aria-live="polite">
+                            Loading mentor records…
+                        </p>
+
+                        <button
+                            type="button"
+                            id="clear-mentor-filters"
+                            class="mentors-clear-filters"
+                            hidden
+                        >Clear filters</button>
+                    </div>
+
+                    <!-- LOADING -->
+                    <div
+                        class="mentors-loading"
+                        id="mentors-loading"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        <span class="mentors-loading-spinner" aria-hidden="true"></span>
+                        <span>Loading mentor records…</span>
+                    </div>
+
+                    <!-- ERROR -->
+                    <div class="mentors-error" id="mentors-error" role="alert" hidden>
+
+                        <span class="mentors-error-mark" aria-hidden="true">!</span>
+
+                        <div>
+                            <h3>We couldn't load the mentors</h3>
+                            <p id="mentors-error-message">
+                                Please check your connection and try again.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="retry-mentors-button"
+                                class="mentors-button mentors-button-secondary"
+                            >Try again</button>
+                        </div>
+
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div class="mentors-empty" id="mentors-empty" hidden>
+
+                        <span class="mentors-empty-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="3.5"/>
+                                <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                                <path d="M17 9h5"/>
+                                <path d="M19.5 6.5v5"/>
+                            </svg>
+                        </span>
+
+                        <h3 id="mentors-empty-title">Build your mentoring community</h3>
+
+                        <p id="mentors-empty-description">
+                            Your mentor directory will appear here once mentor records are available.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="mentors-empty-action"
+                            class="mentors-button mentors-button-primary"
+                        >Add your first mentor</button>
+
+                    </div>
+
+                    <!-- DESKTOP TABLE -->
+                    <div class="mentors-table-wrap" id="mentors-table-wrap" hidden>
+
+                        <table class="mentors-table">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Mentor</th>
+                                    <th scope="col">Expertise</th>
+                                    <th scope="col">Assignments</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">Joined</th>
+                                    <th scope="col">
+                                        <span class="visually-hidden">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="mentors-table-body">
+                                <!-- Populated by mentors.js -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- MOBILE CARDS -->
+                    <div
+                        class="mentors-mobile-list"
+                        id="mentors-mobile-list"
+                        aria-label="Mentor records"
+                        hidden
+                    >
+                        <!-- Populated by mentors.js -->
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div class="mentors-pagination" id="mentors-pagination" hidden>
+
+                        <p id="mentors-pagination-info">Showing 0 mentors</p>
+
+                        <div class="mentors-pagination-controls">
+
+                            <button
+                                type="button"
+                                id="mentors-previous-page"
+                                aria-label="Previous page"
+                                disabled
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="m15 18-6-6 6-6"/>
+                                </svg>
+                            </button>
+
+                            <span id="mentors-page-number" aria-live="polite">Page 1</span>
+
+                            <button
+                                type="button"
+                                id="mentors-next-page"
+                                aria-label="Next page"
+                                disabled
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="m9 18 6-6-6-6"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <footer class="dashboard-footer">
+                    <div class="footer-brand">
+                        <span class="footer-brand-mark">f.</span>
+                        <span>Built for institutions that build futures.</span>
+                    </div>
+
+                    <p class="footer-copyright">
+                        © <span id="current-year">2026</span> Foundev
+                    </p>
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- ADD MENTOR DIALOG -->
+    <dialog
+        class="mentors-dialog"
+        id="mentor-dialog"
+        aria-labelledby="mentor-dialog-title"
+    >
+
+        <div class="mentors-dialog-header">
+
+            <div>
+                <p class="section-kicker">MENTOR DIRECTORY</p>
+                <h2 id="mentor-dialog-title">Add a mentor</h2>
+                <p>Enter the mentor's details to get started.</p>
+            </div>
+
+            <button
+                type="button"
+                id="close-mentor-dialog"
+                class="mentors-dialog-close"
+                aria-label="Close dialog"
+            >×</button>
+
+        </div>
+
+        <form id="mentor-form">
+
+            <div class="mentors-form-field">
+                <label for="new-mentor-name">Full name</label>
+                <input
+                    type="text"
+                    id="new-mentor-name"
+                    name="full_name"
+                    maxlength="150"
+                    autocomplete="name"
+                    required
+                >
+            </div>
+
+            <div class="mentors-form-field">
+                <label for="new-mentor-email">Email address</label>
+                <input
+                    type="email"
+                    id="new-mentor-email"
+                    name="email"
+                    maxlength="254"
+                    autocomplete="email"
+                    required
+                >
+            </div>
+
+            <div class="mentors-form-field">
+                <label for="new-mentor-expertise">Area of expertise</label>
+                <input
+                    type="text"
+                    id="new-mentor-expertise"
+                    name="expertise"
+                    maxlength="200"
+                    placeholder="e.g. Web development, AI, Data Science"
+                >
+            </div>
+
+            <p
+                class="mentors-form-message"
+                id="mentor-form-message"
+                role="status"
+                hidden
+            ></p>
+
+            <div class="mentors-dialog-actions">
+
+                <button
+                    type="button"
+                    id="cancel-mentor-dialog"
+                    class="mentors-button mentors-button-secondary"
+                >Cancel</button>
+
+                <button
+                    type="submit"
+                    id="save-mentor-button"
+                    class="mentors-button mentors-button-primary"
+                >Save mentor</button>
+
+            </div>
+
+        </form>
+    </dialog>
+
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/mentors.js" defer></script>
+
+</body>
+</html>

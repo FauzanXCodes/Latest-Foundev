@@ -1,0 +1,583 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F7F4EF">
+    <meta name="description" content="Manage your institution's projects on Foundev.">
+
+    <title>My Projects — Foundev Institution</title>
+
+    <!-- Shared workspace styles -->
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+
+    <!-- Page-specific styles -->
+    <link rel="stylesheet" href="../assets/css/admin-my-projects.css">
+
+    <!-- Shared workspace interactions -->
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/admin-my-projects.js" defer></script>
+</head>
+
+<body class="institution-dashboard">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="institute-app" id="institute-app">
+
+    <!-- SHARED SIDEBAR -->
+    <aside
+        class="institute-sidebar"
+        id="institute-sidebar"
+        aria-label="Institution navigation"
+    >
+        <div class="sidebar-top">
+
+            <a href="dashboard.html"
+               class="institute-brand"
+               aria-label="Foundev institution home">
+
+                <div class="brand-mark">
+                    <img
+                        src="../assets/images/foundev-logo.png"
+                        alt="Foundev"
+                        class="brand-logo"
+                    >
+                </div>
+
+                <span class="brand-copy">
+                    <strong>foundev</strong>
+                    <small>Institution workspace</small>
+                </span>
+            </a>
+
+            <div class="workspace-switcher">
+                <span class="workspace-avatar" aria-hidden="true">I</span>
+
+                <span class="workspace-copy">
+                    <small>YOUR WORKSPACE</small>
+                    <strong id="institution-name">Your institution</strong>
+                </span>
+
+                <span class="workspace-indicator" aria-hidden="true">⌄</span>
+            </div>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="sidebar-navigation" aria-label="Main navigation">
+
+                <!-- Overview -->
+                <a class="sidebar-link" href="dashboard.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                        </svg>
+                    </span>
+                    <span>Overview</span>
+                </a>
+
+                <!-- Students -->
+                <a class="sidebar-link" href="../admin/students.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="3.5"/>
+                            <path d="M2.8 20v-1.7a6.2 6.2 0 0 1 12.4 0V20"/>
+                            <path d="M16 5.2a3.5 3.5 0 0 1 0 6.8"/>
+                            <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                        </svg>
+                    </span>
+                    <span>Students</span>
+                </a>
+
+                <!-- Mentors -->
+                <a class="sidebar-link" href="../admin/mentors.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="7" r="3.5"/>
+                            <path d="M5 20v-1.5a7 7 0 0 1 14 0V20"/>
+                            <path d="m9 13 3 2 3-2"/>
+                        </svg>
+                    </span>
+                    <span>Mentors</span>
+                </a>
+
+                <!-- Projects: project catalogue -->
+                <a class="sidebar-link" href="../admin/projects.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M3 9h18M9 9v11"/>
+                        </svg>
+                    </span>
+                    <span>Projects</span>
+                </a>
+
+                <!-- My Projects: current page -->
+                <a
+                    class="sidebar-link active"
+                    href="admin-my-projects.html"
+                    aria-current="page"
+                >
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M3 9h18M9 9v11"/>
+                            <path d="m12.5 13 2 2-2 2"/>
+                            <path d="M16 17h2"/>
+                        </svg>
+                    </span>
+                    <span>My Projects</span>
+                    <span class="nav-current-marker" aria-hidden="true"></span>
+                </a>
+
+                <!-- Assessments -->
+                <a class="sidebar-link" href="../admin/assessments.php">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5a1.5 1.5 0 0 1 1.5-1.5Z"/>
+                            <path d="M14.5 3.5V8H19"/>
+                            <path d="m8.5 14 2 2 4-4"/>
+                        </svg>
+                    </span>
+                    <span>Assessments</span>
+                </a>
+
+            </nav>
+
+            <!-- MANAGEMENT -->
+            <p class="sidebar-label sidebar-label-spaced">MANAGEMENT</p>
+
+            <nav class="sidebar-navigation" aria-label="Institution management">
+                <a class="sidebar-link" href="../admin/settings.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3H3.7a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"/>
+                        </svg>
+                    </span>
+                    <span>Institution settings</span>
+                </a>
+            </nav>
+
+        </div>
+
+        <!-- SIDEBAR BOTTOM -->
+        <div class="sidebar-bottom">
+
+            <a class="sidebar-help" href="mailto:support@thefoundev.com">
+                <span class="help-icon" aria-hidden="true">?</span>
+                <span>
+                    <strong>Need a hand?</strong>
+                    <small>Get help with your workspace</small>
+                </span>
+                <span class="help-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <div class="sidebar-account">
+                <span class="account-avatar" id="admin-initial" aria-hidden="true">A</span>
+
+                <span class="account-information">
+                    <strong id="admin-name">Administrator</strong>
+                    <small id="admin-email">Loading account...</small>
+                </span>
+
+                <button
+                    class="account-menu-button"
+                    id="account-menu-button"
+                    type="button"
+                    aria-label="Account options"
+                    aria-expanded="false"
+                    aria-controls="account-menu"
+                >···</button>
+
+                <div class="account-menu" id="account-menu" hidden>
+                    <a href="../admin/settings.html">Account settings</a>
+                    <button id="logout-button" type="button">Sign out</button>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- MOBILE SIDEBAR BACKDROP -->
+    <button
+        class="sidebar-overlay"
+        id="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+        hidden
+    ></button>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="institute-main" id="main-content">
+
+        <!-- TOPBAR -->
+        <header class="institute-topbar">
+
+            <div class="topbar-left">
+                <button
+                    class="sidebar-toggle"
+                    id="sidebar-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-controls="institute-sidebar"
+                    aria-expanded="false"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                </button>
+
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <span>Workspace</span>
+                    <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                    <strong aria-current="page">My Projects</strong>
+                </nav>
+            </div>
+
+            <div class="topbar-right">
+                <span class="system-status" id="system-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="system-status-text">Connecting</span>
+                </span>
+
+                <span class="topbar-divider" aria-hidden="true"></span>
+
+                <button
+                    class="topbar-date"
+                    id="topbar-date"
+                    type="button"
+                    aria-label="Current date"
+                >
+                    <span class="date-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="5" width="17" height="15.5" rx="2"/>
+                            <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17"/>
+                        </svg>
+                    </span>
+                    <span id="dashboard-date">Today</span>
+                </button>
+            </div>
+
+        </header>
+
+        <!-- MY PROJECTS CONTENT -->
+        <div class="dashboard-content my-projects-content">
+
+            <!-- PAGE INTRODUCTION -->
+            <section
+                class="dashboard-welcome my-projects-welcome"
+                aria-labelledby="welcome-title"
+            >
+
+                <div class="welcome-copy">
+                    <p class="page-eyebrow">
+                        <span class="eyebrow-line" aria-hidden="true"></span>
+                        YOUR INSTITUTION'S PROJECT LIBRARY
+                    </p>
+
+                    <h1 id="welcome-title">
+                        My Projects<span class="welcome-period">.</span>
+                    </h1>
+
+                    <p class="welcome-description">
+                        Access the projects your institution has acquired,
+                        organise team participation, and keep track of project access.
+                    </p>
+
+                    <p class="welcome-personal">
+                        Welcome back,
+                        <strong id="welcome-admin-name">Administrator</strong>.
+                    </p>
+                </div>
+
+                <div class="welcome-actions">
+                    <span class="workspace-date-label">PROJECT WORKSPACE</span>
+                    <span class="workspace-date-value" id="welcome-date">
+                        Your institution's projects
+                    </span>
+
+                    <a class="welcome-action-link" href="../admin/projects.html">
+                        Browse project catalogue
+                        <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- API AND FEEDBACK NOTICE -->
+            <div
+                class="dashboard-notice"
+                id="projects-notice"
+                role="status"
+                aria-live="polite"
+                hidden
+            >
+                <span class="notice-indicator" aria-hidden="true"></span>
+                <span id="projects-notice-text"></span>
+                <button
+                    id="dismiss-notice"
+                    type="button"
+                    aria-label="Dismiss message"
+                >×</button>
+            </div>
+
+            <!-- PROJECT OVERVIEW -->
+            <section
+                class="dashboard-overview"
+                aria-labelledby="projects-overview-title"
+            >
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">PROJECT MANAGEMENT</p>
+                        <h2 id="projects-overview-title">Your project library</h2>
+                        <p class="section-description">
+                            A central place to find and manage your institution's projects.
+                        </p>
+                    </div>
+
+                    <button class="refresh-button" id="refresh-projects" type="button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7v5h-5"/>
+                            <path d="M19 12a7.5 7.5 0 0 0-13.3-4.8L4 9"/>
+                            <path d="M4 17v-5h5"/>
+                            <path d="M5 12a7.5 7.5 0 0 0 13.3 4.8L20 15"/>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+
+                <!-- SUMMARY CARDS -->
+                <div class="stats-grid my-projects-stats">
+
+                    <article class="stat-card stat-card-projects">
+                        <div class="stat-card-top">
+                            <span class="stat-label">All projects</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 9h18M9 9v11"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="total-projects">—</strong>
+                            <span class="stat-unit">projects</span>
+                        </div>
+
+                        <p class="stat-description">Projects available in this library</p>
+                    </article>
+
+                    <article class="stat-card stat-card-mentors">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Active access</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="m8 12 2.5 2.5L16 9"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="active-projects">—</strong>
+                            <span class="stat-unit">active</span>
+                        </div>
+
+                        <p class="stat-description">Projects with current access</p>
+                    </article>
+
+                    <article class="stat-card stat-card-assessments">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Expiring soon</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 7v5l3 2"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="expiring-projects">—</strong>
+                            <span class="stat-unit">projects</span>
+                        </div>
+
+                        <p class="stat-description">Access nearing its expiry date</p>
+                    </article>
+
+                    <article class="stat-card stat-card-students">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Pending</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M12 3 3.5 7.5 12 12l8.5-4.5L12 3Z"/>
+                                    <path d="M5 10.5V16l7 4 7-4v-5.5"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="pending-projects">—</strong>
+                            <span class="stat-unit">orders</span>
+                        </div>
+
+                        <p class="stat-description">Project purchases awaiting confirmation</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- PROJECT LIST PANEL -->
+            <section
+                class="dashboard-panel my-projects-panel"
+                aria-labelledby="project-list-title"
+            >
+
+                <div class="panel-heading my-projects-panel-heading">
+                    <div>
+                        <p class="section-kicker">YOUR COLLECTION</p>
+                        <h2 id="project-list-title">Purchased projects</h2>
+                        <p class="panel-description">
+                            View project details and check your institution's access status.
+                        </p>
+                    </div>
+
+                    <span class="panel-live-indicator">
+                        <span aria-hidden="true"></span>
+                        Institution library
+                    </span>
+                </div>
+
+                <!-- SEARCH AND FILTER CONTROLS -->
+                <div class="project-toolbar">
+
+                    <label class="project-search" for="project-search">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="10.8" cy="10.8" r="6.8"/>
+                            <path d="m16 16 4.5 4.5"/>
+                        </svg>
+
+                        <input
+                            type="search"
+                            id="project-search"
+                            placeholder="Search your projects..."
+                            autocomplete="off"
+                        >
+                    </label>
+
+                    <label class="project-filter-label" for="project-status-filter">
+                        <span class="visually-hidden">Filter projects by status</span>
+
+                        <select id="project-status-filter">
+                            <option value="all">All statuses</option>
+                            <option value="active">Active</option>
+                            <option value="expiring">Expiring soon</option>
+                            <option value="expired">Expired</option>
+                            <option value="pending">Payment pending</option>
+                        </select>
+                    </label>
+
+                </div>
+
+                <!-- LOADING STATE -->
+                <div class="projects-loading" id="projects-loading" role="status">
+                    <span class="loading-spinner" aria-hidden="true"></span>
+                    <span>Loading your projects...</span>
+                </div>
+
+                <!-- PROJECT CARDS: POPULATED BY JAVASCRIPT -->
+                <div
+                    class="my-projects-grid"
+                    id="my-projects-grid"
+                    aria-live="polite"
+                    aria-busy="true"
+                ></div>
+
+                <!-- EMPTY STATE -->
+                <div class="activity-empty projects-empty" id="projects-empty" hidden>
+
+                    <span class="empty-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M3 9h18M9 9v11"/>
+                        </svg>
+                    </span>
+
+                    <h3 id="projects-empty-title">Your project library is waiting</h3>
+
+                    <p id="projects-empty-description">
+                        Purchased projects will appear here once they are available
+                        to your institution.
+                    </p>
+
+                    <a
+                        class="welcome-action-link"
+                        href="../admin/projects.html"
+                    >
+                        Explore the project catalogue
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                </div>
+
+                <!-- ERROR STATE -->
+                <div class="activity-error" id="projects-error" hidden>
+                    <p id="projects-error-text">
+                        We couldn't load your projects. Please try again.
+                    </p>
+                    <button id="retry-projects" type="button">Try again</button>
+                </div>
+
+                <!-- PAGINATION -->
+                <div class="projects-pagination" id="projects-pagination" hidden>
+
+                    <span id="projects-pagination-info">Showing projects</span>
+
+                    <div class="projects-pagination-actions">
+                        <button
+                            class="refresh-button"
+                            id="projects-previous-page"
+                            type="button"
+                            disabled
+                        >Previous</button>
+
+                        <button
+                            class="refresh-button"
+                            id="projects-next-page"
+                            type="button"
+                            disabled
+                        >Next</button>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <!-- FOOTER -->
+            <footer class="dashboard-footer">
+                <div class="footer-brand">
+                    <span class="footer-brand-mark" aria-hidden="true">f.</span>
+                    <span>Thoughtfully built for better learning.</span>
+                </div>
+
+                <span class="footer-copyright">
+                    © <span id="current-year"></span> Foundev
+                </span>
+            </footer>
+
+        </div>
+    </main>
+
+</div>
+
+</body>
+</html>

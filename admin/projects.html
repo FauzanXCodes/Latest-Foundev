@@ -1,0 +1,1033 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F7F4EF">
+    <meta name="description" content="Explore and purchase practical projects for your institution on Foundev.">
+
+    <title>Projects — Foundev Institution</title>
+
+    <!-- Shared Foundev workspace styles -->
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="../assets/css/projects.css">
+
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/projects.js" defer></script>
+</head>
+
+<body class="institution-dashboard">
+
+<a href="#main-content" class="skip-link">Skip to content</a>
+
+<div class="institute-app" id="institute-app">
+
+    <!-- SIDEBAR -->
+    <aside class="institute-sidebar"
+           id="institute-sidebar"
+           aria-label="Institution navigation">
+
+        <div class="sidebar-top">
+
+            <a href="dashboard.html"
+               class="institute-brand"
+               aria-label="Foundev institution home">
+
+                <span class="brand-mark">
+                    <img src="../assets/images/foundev-logo.png"
+                         alt="Foundev"
+                         class="brand-logo">
+                </span>
+
+                <span class="brand-copy">
+                    <strong>foundev</strong>
+                    <small>Institution workspace</small>
+                </span>
+            </a>
+
+            <div class="workspace-switcher">
+                <span class="workspace-avatar" id="institution-initial">I</span>
+
+                <span class="workspace-copy">
+                    <small>YOUR WORKSPACE</small>
+                    <strong id="institution-name">Your institution</strong>
+                </span>
+
+                <span class="workspace-indicator" aria-hidden="true">⌄</span>
+            </div>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="sidebar-navigation" aria-label="Main navigation">
+
+                <a class="sidebar-link" href="dashboard.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                        </svg>
+                    </span>
+                    <span>Overview</span>
+                </a>
+
+                <a class="sidebar-link" href="students.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="3.5"/>
+                            <path d="M2.8 20v-1.5a6.2 6.2 0 0 1 12.4 0V20"/>
+                            <path d="M16 5a3.5 3.5 0 0 1 0 6.2"/>
+                            <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                        </svg>
+                    </span>
+                    <span>Students</span>
+                </a>
+
+                <a class="sidebar-link" href="mentors.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="8" r="3.5"/>
+                            <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                            <path d="m9 15 3 2 3-2"/>
+                        </svg>
+                    </span>
+                    <span>Mentors</span>
+                </a>
+
+                <a class="sidebar-link active"
+                   href="projects.html"
+                   aria-current="page">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                            <path d="M8 4.5v15M8 9h12.5M12 13h5M12 16h3"/>
+                        </svg>
+                    </span>
+                    <span>Projects</span>
+                    <span class="nav-current-marker"></span>
+                </a>
+
+                <a class="sidebar-link" href="admin-my-projects.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M3 9h18M9 9v11"/>
+                            <path d="m12.5 13 2 2-2 2M16 17h2"/>
+                        </svg>
+                    </span>
+                    <span>My Projects</span>
+                </a>
+
+                <a class="sidebar-link" href="assessments.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                            <path d="M14.5 3.5V8H19"/>
+                            <path d="m9 14 2 2 4-4"/>
+                        </svg>
+                    </span>
+                    <span>Assessments</span>
+                </a>
+
+            </nav>
+
+            <p class="sidebar-label sidebar-label-spaced">MANAGEMENT</p>
+
+            <nav class="sidebar-navigation" aria-label="Institution management">
+                <a class="sidebar-link" href="settings.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/>
+                        </svg>
+                    </span>
+                    <span>Institution settings</span>
+                </a>
+            </nav>
+
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <a class="sidebar-help" href="mailto:support@thefoundev.com">
+                <span class="help-icon" aria-hidden="true">?</span>
+                <span>
+                    <strong>Need a hand?</strong>
+                    <small>Get help with your workspace</small>
+                </span>
+                <span class="help-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <div class="sidebar-account">
+                <span class="account-avatar" id="admin-initial">A</span>
+
+                <span class="account-information">
+                    <strong id="admin-name">Administrator</strong>
+                    <small id="admin-email">Loading account...</small>
+                </span>
+
+                <button class="account-menu-button"
+                        id="account-menu-button"
+                        type="button"
+                        aria-label="Account options"
+                        aria-expanded="false"
+                        aria-controls="account-menu">···</button>
+
+                <div class="account-menu" id="account-menu" hidden>
+                    <a href="settings.html">Account settings</a>
+                    <button id="logout-button" type="button">Sign out</button>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <button class="sidebar-overlay"
+            id="sidebar-overlay"
+            type="button"
+            aria-label="Close navigation"
+            tabindex="-1"
+            hidden></button>
+
+    <!-- MAIN WORKSPACE -->
+    <main class="institute-main" id="main-content">
+
+        <!-- TOPBAR -->
+        <header class="institute-topbar">
+
+            <div class="topbar-left">
+                <button class="sidebar-toggle"
+                        id="sidebar-toggle"
+                        type="button"
+                        aria-label="Open navigation"
+                        aria-controls="institute-sidebar"
+                        aria-expanded="false">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                </button>
+
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <span>Workspace</span>
+                    <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                    <strong aria-current="page">Projects</strong>
+                </nav>
+            </div>
+
+            <div class="topbar-right">
+                <span class="system-status" id="system-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="system-status-text">Connecting</span>
+                </span>
+
+                <span class="topbar-divider" aria-hidden="true"></span>
+
+                <button class="topbar-date"
+                        id="topbar-date"
+                        type="button"
+                        aria-label="Current date">
+                    <span class="date-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="5" width="17" height="15.5" rx="2"/>
+                            <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17"/>
+                        </svg>
+                    </span>
+                    <span id="dashboard-date">Today</span>
+                </button>
+            </div>
+
+        </header>
+
+        <div class="dashboard-content projects-page">
+
+            <!-- PAGE INTRODUCTION -->
+            <section class="dashboard-welcome projects-welcome">
+
+                <div class="welcome-copy">
+                    <p class="page-eyebrow">
+                        <span class="eyebrow-line" aria-hidden="true"></span>
+                        PROJECT MARKETPLACE
+                    </p>
+
+                    <h1 id="welcome-title">
+                        Build something real<span class="welcome-period">.</span>
+                    </h1>
+
+                    <p class="welcome-description">
+                        Explore practical projects, review their technology
+                        stacks and select the right project experience for
+                        your students.
+                    </p>
+                </div>
+
+                <div class="welcome-actions">
+                    <span class="workspace-date-label">PROJECT ACCESS</span>
+                    <span class="workspace-date-value">6 months</span>
+                    <a class="welcome-action-link" href="admin-my-projects.html">
+                        View purchased projects <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- SUMMARY -->
+            <section class="projects-summary" aria-label="Project information">
+
+                <article class="stat-card">
+                    <div class="stat-card-top">
+                        <span class="stat-label">Available projects</span>
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                                <path d="M8 4.5v15M8 9h12.5"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="stat-value-row">
+                        <strong class="stat-value" id="projects-total">—</strong>
+                    </div>
+                    <p class="stat-description">Published projects in the catalogue</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-card-top">
+                        <span class="stat-label">Access validity</span>
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 7v5l3 2"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="stat-value-row">
+                        <strong class="stat-value">6 months</strong>
+                    </div>
+                    <p class="stat-description">Validity for each purchased project</p>
+                </article>
+
+                <article class="stat-card">
+                    <div class="stat-card-top">
+                        <span class="stat-label">Secure checkout</span>
+                        <span class="stat-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                <path d="M8 10V7a4 4 0 0 1 8 0v3"/>
+                            </svg>
+                        </span>
+                    </div>
+                    <div class="stat-value-row">
+                        <strong class="stat-value">Cashfree</strong>
+                    </div>
+                    <p class="stat-description">Secure payment processing</p>
+                </article>
+
+            </section>
+
+            <!-- CATALOGUE -->
+            <section class="projects-directory"
+                     aria-labelledby="projects-directory-title">
+
+                <div class="section-heading projects-directory-heading">
+
+                    <div>
+                        <p class="section-kicker">EXPLORE THE CATALOGUE</p>
+                        <h2 id="projects-directory-title">Find your next project</h2>
+                        <p class="section-description">
+                            Discover projects and compare their technology stacks.
+                        </p>
+                    </div>
+
+                    <button type="button"
+                            class="refresh-button projects-refresh-button"
+                            id="refresh-projects-button">
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7v5h-5M4 17v-5h5"/>
+                            <path d="M5.5 9a7 7 0 0 1 11.8-2L20 12M4 12l2.7 5a7 7 0 0 0 11.8-2"/>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+
+                </div>
+
+                <div class="projects-toolbar">
+
+                    <div class="projects-search-wrap">
+                        <label for="project-search" class="visually-hidden">
+                            Search projects
+                        </label>
+
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <circle cx="10.8" cy="10.8" r="6.8"/>
+                            <path d="m16 16 4.5 4.5"/>
+                        </svg>
+
+                        <input type="search"
+                               id="project-search"
+                               name="search"
+                               placeholder="Search projects or technologies..."
+                               maxlength="150"
+                               autocomplete="off">
+
+                        <kbd class="projects-search-shortcut" aria-hidden="true">/</kbd>
+                    </div>
+
+                    <div class="projects-filter-group">
+
+                        <label for="project-category-filter"
+                               class="visually-hidden">Filter category</label>
+
+                        <select id="project-category-filter" name="category">
+                            <option value="all">All categories</option>
+                            <option value="artificial-intelligence">Artificial Intelligence &amp; ML</option>
+                            <option value="web-development">Web Development</option>
+                            <option value="mobile-development">Mobile App Development</option>
+                            <option value="data-science">Data Science</option>
+                            <option value="cybersecurity">Cybersecurity</option>
+                            <option value="iot">IoT &amp; Embedded Systems</option>
+                        </select>
+
+                        <label for="project-sort" class="visually-hidden">
+                            Sort projects
+                        </label>
+
+                        <select id="project-sort" name="sort">
+                            <option value="featured">Featured first</option>
+                            <option value="price-low">Price: low to high</option>
+                            <option value="price-high">Price: high to low</option>
+                            <option value="name-asc">Name A–Z</option>
+                            <option value="name-desc">Name Z–A</option>
+                        </select>
+
+                    </div>
+                </div>
+
+                <div class="projects-results-bar">
+                    <p id="projects-results-count" aria-live="polite">
+                        Loading available projects...
+                    </p>
+
+                    <button type="button"
+                            id="clear-project-filters"
+                            class="projects-clear-filters"
+                            hidden>
+                        Clear filters
+                    </button>
+                </div>
+
+                <div class="projects-loading"
+                     id="projects-loading"
+                     role="status"
+                     aria-live="polite">
+                    <span class="projects-loading-spinner" aria-hidden="true"></span>
+                    <span>Loading the project catalogue...</span>
+                </div>
+
+                <div class="projects-error"
+                     id="projects-error"
+                     role="alert"
+                     hidden>
+                    <span class="projects-error-mark" aria-hidden="true">!</span>
+                    <div>
+                        <h3>We couldn't load the catalogue</h3>
+                        <p id="projects-error-message">
+                            Please check your connection and try again.
+                        </p>
+                        <button type="button"
+                                id="retry-projects-button"
+                                class="projects-button projects-button-secondary">
+                            Try again
+                        </button>
+                    </div>
+                </div>
+
+                <div class="projects-empty" id="projects-empty" hidden>
+                    <span class="projects-empty-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                            <path d="M8 4.5v15M12 10h4M12 14h3"/>
+                        </svg>
+                    </span>
+                    <h3 id="projects-empty-title">No projects found</h3>
+                    <p id="projects-empty-description">
+                        Try a different search or category.
+                    </p>
+                </div>
+
+                <div class="projects-catalogue-grid"
+                     id="projects-catalogue-grid"
+                     aria-label="Available projects"></div>
+
+            </section>
+
+            <!-- HOW IT WORKS -->
+            <section class="dashboard-panel projects-how-it-works"
+                     aria-labelledby="projects-how-title">
+
+                <div class="panel-heading">
+                    <div>
+                        <p class="section-kicker">HOW IT WORKS</p>
+                        <h2 id="projects-how-title">From selection to creation</h2>
+                        <p class="panel-description">
+                            A simple process for bringing practical projects
+                            to your student community.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="projects-how-grid">
+
+                    <article class="projects-how-card">
+                        <span class="projects-how-number">01</span>
+                        <h3>Choose a project</h3>
+                        <p>Review the project details and technology stack.</p>
+                    </article>
+
+                    <article class="projects-how-card">
+                        <span class="projects-how-number">02</span>
+                        <h3>Build your team</h3>
+                        <p>Select one, two or three students for the project.</p>
+                    </article>
+
+                    <article class="projects-how-card">
+                        <span class="projects-how-number">03</span>
+                        <h3>Complete payment</h3>
+                        <p>Pay securely and receive access after verification.</p>
+                    </article>
+
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                <div class="footer-brand">
+                    <span class="footer-brand-mark">f.</span>
+                    <span>Thoughtfully built for better learning.</span>
+                </div>
+
+                <span class="footer-copyright">
+                    © <span id="current-year">2026</span> Foundev
+                </span>
+            </footer>
+
+        </div>
+    </main>
+
+</div>
+
+<!-- PROJECT DETAILS AND PURCHASE DIALOG -->
+<dialog class="projects-dialog"
+        id="project-details-dialog"
+        aria-labelledby="project-dialog-title">
+
+    <div class="projects-dialog-header">
+        <div>
+            <p class="section-kicker">PROJECT DETAILS</p>
+            <h2 id="project-dialog-title">Project details</h2>
+            <p id="project-dialog-subtitle">
+                Review the project before continuing.
+            </p>
+        </div>
+
+        <button type="button"
+                class="projects-dialog-close"
+                data-close-project-dialog
+                aria-label="Close project details">×</button>
+    </div>
+
+    <div class="projects-dialog-body">
+
+        <!-- PROJECT DESCRIPTION -->
+        <div class="project-detail-overview">
+            <p id="detail-project-description">
+                Select a project to view its description.
+            </p>
+        </div>
+
+        <!-- TECHNOLOGIES -->
+        <section class="project-detail-section"
+                 aria-labelledby="detail-tech-heading">
+
+            <h3 id="detail-tech-heading">Technology stack</h3>
+
+            <div class="project-detail-tech-list"
+                 id="detail-project-technologies">
+                <span class="project-tech-tag">Loading technologies...</span>
+            </div>
+
+        </section>
+
+        <!-- PROJECT HIGHLIGHTS -->
+        <section class="project-detail-section"
+                 aria-labelledby="detail-features-heading">
+
+            <h3 id="detail-features-heading">Project highlights</h3>
+
+            <ul id="detail-project-features">
+                <li>Practical project experience</li>
+                <li>Technology-focused learning</li>
+                <li>Six-month access period</li>
+            </ul>
+
+        </section>
+
+        <!-- PURCHASE FORM -->
+        <form id="project-checkout-form" novalidate>
+
+            <input type="hidden"
+                   id="selected-project-id"
+                   name="project_id">
+
+            <!-- PURCHASE SUMMARY -->
+            <div class="project-purchase-summary">
+
+                <div class="project-purchase-summary-row">
+                    <span>Selected project</span>
+                    <strong id="checkout-project-name">Project</strong>
+                </div>
+
+                <div class="project-purchase-summary-row">
+                    <span>Access validity</span>
+                    <strong>6 months</strong>
+                </div>
+
+                <div class="project-purchase-summary-row">
+                    <span>Payment provider</span>
+                    <strong>Cashfree</strong>
+                </div>
+
+            </div>
+
+            <!-- TEAM SIZE -->
+            <section class="projects-form-section"
+                     aria-labelledby="member-count-heading">
+
+                <p class="section-kicker">PURCHASE CONFIGURATION</p>
+
+                <h3 id="member-count-heading">Choose your team size</h3>
+
+                <p class="projects-form-description">
+                    Select how many students will work on this project.
+                    The price changes according to the selected team size.
+                </p>
+
+                <div class="member-size-options"
+                     role="group"
+                     aria-label="Number of student members">
+
+                    <label class="member-size-option">
+                        <input type="radio"
+                               name="team_size"
+                               value="1"
+                               id="team-size-1">
+
+                        <span class="member-size-content">
+                            <strong>1 member</strong>
+                            <small>Individual</small>
+                        </span>
+                    </label>
+
+                    <label class="member-size-option">
+                        <input type="radio"
+                               name="team_size"
+                               value="2"
+                               id="team-size-2">
+
+                        <span class="member-size-content">
+                            <strong>2 members</strong>
+                            <small>Pair project</small>
+                        </span>
+                    </label>
+
+                    <label class="member-size-option is-selected">
+                        <input type="radio"
+                               name="team_size"
+                               value="3"
+                               id="team-size-3"
+                               checked>
+
+                        <span class="member-size-content">
+                            <strong>3 members</strong>
+                            <small>Team project</small>
+                            <span class="default-member-label">Default</span>
+                        </span>
+                    </label>
+
+                </div>
+
+                <!-- SELECTED TEAM PRICE -->
+                <div class="selected-tier-price"
+                     aria-live="polite">
+
+                    <span>Selected team price</span>
+
+                    <strong id="selected-tier-price">
+                        Price unavailable
+                    </strong>
+
+                    <small id="selected-tier-description">
+                        Three-member project pricing
+                    </small>
+
+                </div>
+
+                <p class="projects-form-hint" id="pricing-status">
+                    Project pricing will be loaded from the server.
+                </p>
+
+            </section>
+
+            <!-- TEAM NAME: REQUIRED ONLY FOR 2 OR 3 STUDENTS -->
+            <div class="projects-form-field"
+                 id="team-name-field">
+
+                <label for="checkout-team-name">
+                    Team name <span aria-hidden="true">*</span>
+                </label>
+
+                <input type="text"
+                       id="checkout-team-name"
+                       name="team_name"
+                       maxlength="150"
+                       minlength="2"
+                       placeholder="e.g. Team Innovators"
+                       autocomplete="organization"
+                       required>
+
+                <small>Choose a name for your student team.</small>
+
+            </div>
+
+            <!-- STUDENT DETAILS -->
+            <section class="projects-form-section"
+                     aria-labelledby="student-members-heading">
+
+                <p class="section-kicker">STUDENT DETAILS</p>
+
+                <h3 id="student-members-heading">Add project members</h3>
+
+                <p class="projects-form-description">
+                    Enter the Foundev usernames of students from your institution.
+                </p>
+
+                <!-- STUDENT 1 -->
+                <div class="projects-form-field"
+                     id="student-member-field-1">
+
+                    <label for="student-username-1">
+                        Student 1 username
+                    </label>
+
+                    <input type="text"
+                           id="student-username-1"
+                           name="student_usernames[]"
+                           maxlength="50"
+                           placeholder="Enter student username"
+                           autocomplete="off"
+                           required>
+                </div>
+
+                <!-- STUDENT 2 -->
+                <div class="projects-form-field"
+                     id="student-member-field-2">
+
+                    <label for="student-username-2">
+                        Student 2 username
+                    </label>
+
+                    <input type="text"
+                           id="student-username-2"
+                           name="student_usernames[]"
+                           maxlength="50"
+                           placeholder="Enter second student's username"
+                           autocomplete="off"
+                           disabled
+                           hidden>
+                </div>
+
+                <!-- STUDENT 3 -->
+                <div class="projects-form-field"
+                     id="student-member-field-3">
+
+                    <label for="student-username-3">
+                        Student 3 username
+                    </label>
+
+                    <input type="text"
+                           id="student-username-3"
+                           name="student_usernames[]"
+                           maxlength="50"
+                           placeholder="Enter third student's username"
+                           autocomplete="off"
+                           disabled
+                           hidden>
+                </div>
+
+                <p class="projects-form-hint">
+                    Students must have an active Foundev account associated
+                    with your institution.
+                </p>
+
+            </section>
+
+            <!-- TEAM PROFILE CONFIRMATION -->
+            <section class="team-profile-section"
+                     id="team-profile-section"
+                     aria-labelledby="team-profile-heading"
+                     hidden>
+
+                <p class="section-kicker">PROFILE VERIFICATION</p>
+
+                <h3 id="team-profile-heading">Review your project members</h3>
+
+                <p class="projects-form-description">
+                    Confirm that the selected students are correct before payment.
+                </p>
+
+                <div id="team-profile-container"
+                     class="team-profile-container"
+                     aria-live="polite"></div>
+
+                <label class="profile-confirmation">
+                    <input type="checkbox"
+                           id="confirm-team-profiles"
+                           name="confirm_profiles">
+
+                    <span>
+                        I confirm that these are the correct students for this project.
+                    </span>
+                </label>
+
+            </section>
+
+            <!-- INSTITUTION CONTACT -->
+            <div class="projects-form-field">
+
+                <label for="checkout-customer-phone">
+                    Contact phone number
+                </label>
+
+                <input type="tel"
+                       id="checkout-customer-phone"
+                       name="customer_phone"
+                       maxlength="20"
+                       placeholder="Institution contact number"
+                       autocomplete="tel">
+
+            </div>
+
+            <!-- FORM MESSAGE -->
+            <p class="projects-form-message"
+               id="project-checkout-message"
+               role="status"
+               aria-live="polite"
+               hidden></p>
+
+            <!-- ACTIONS -->
+            <div class="projects-dialog-actions">
+
+                <button type="button"
+                        class="projects-button projects-button-secondary"
+                        data-close-project-dialog>
+                    Cancel
+                </button>
+
+                <button type="submit"
+                        class="projects-button projects-button-primary"
+                        id="project-checkout-button">
+
+                    <span>Verify students &amp; continue</span>
+
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+
+                </button>
+
+            </div>
+
+            <p class="projects-payment-disclaimer">
+                Your final payment amount will be calculated and verified
+                securely by Foundev's server.
+            </p>
+
+        </form>
+
+    </div>
+</dialog>
+
+<!-- PAYMENT STATUS DIALOG -->
+<dialog class="projects-dialog projects-payment-dialog"
+        id="project-payment-dialog"
+        aria-labelledby="payment-dialog-title">
+
+    <div class="projects-dialog-header">
+
+        <div>
+            <p class="section-kicker">PAYMENT STATUS</p>
+
+            <h2 id="payment-dialog-title">Checking your payment</h2>
+
+            <p id="payment-dialog-description">
+                Please wait while we verify the transaction.
+            </p>
+        </div>
+
+        <button type="button"
+                class="projects-dialog-close"
+                data-close-payment-dialog
+                aria-label="Close payment status">×</button>
+
+    </div>
+
+    <div class="projects-payment-result"
+         id="project-payment-result"
+         role="status"
+         aria-live="polite">
+
+        <span class="projects-loading-spinner" aria-hidden="true"></span>
+
+        <p id="payment-result-message">
+            Verifying payment with the server...
+        </p>
+
+    </div>
+
+    <div class="projects-dialog-actions">
+
+        <button type="button"
+                class="projects-button projects-button-secondary"
+                id="payment-retry-button"
+                hidden>
+            Check payment again
+        </button>
+
+        <button type="button"
+                class="projects-button projects-button-primary"
+                id="payment-done-button">
+            Back to projects
+        </button>
+
+    </div>
+
+</dialog>
+
+<!-- TEAM SIZE INTERACTION -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const teamRadios = document.querySelectorAll(
+        'input[name="team_size"]'
+    );
+
+    const teamNameField = document.getElementById(
+        "team-name-field"
+    );
+
+    const teamNameInput = document.getElementById(
+        "checkout-team-name"
+    );
+
+    const memberFields = {
+        1: document.getElementById("student-member-field-1"),
+        2: document.getElementById("student-member-field-2"),
+        3: document.getElementById("student-member-field-3")
+    };
+
+    const memberInputs = {
+        1: document.getElementById("student-username-1"),
+        2: document.getElementById("student-username-2"),
+        3: document.getElementById("student-username-3")
+    };
+
+    const priceDescription = document.getElementById(
+        "selected-tier-description"
+    );
+
+    function updateTeamSize() {
+
+        const selected = document.querySelector(
+            'input[name="team_size"]:checked'
+        );
+
+        if (!selected) return;
+
+        const teamSize = Number(selected.value);
+
+        // Team name is required only for teams of 2 or 3.
+        const needsTeamName = teamSize > 1;
+
+        teamNameField.hidden = !needsTeamName;
+        teamNameInput.required = needsTeamName;
+
+        if (!needsTeamName) {
+            teamNameInput.value = "";
+        }
+
+        // Show only the selected number of student fields.
+        Object.keys(memberFields).forEach(function (number) {
+
+            const memberNumber = Number(number);
+            const shouldShow = memberNumber <= teamSize;
+
+            const field = memberFields[memberNumber];
+            const input = memberInputs[memberNumber];
+
+            field.hidden = !shouldShow;
+            input.hidden = !shouldShow;
+            input.disabled = !shouldShow;
+            input.required = shouldShow;
+
+            if (!shouldShow) {
+                input.value = "";
+            }
+        });
+
+        // Update selected visual state.
+        document.querySelectorAll(".member-size-option").forEach(
+            function (option) {
+                const radio = option.querySelector(
+                    'input[name="team_size"]'
+                );
+
+                option.classList.toggle(
+                    "is-selected",
+                    radio.checked
+                );
+            }
+        );
+
+        // Update pricing description.
+        if (priceDescription) {
+            const descriptions = {
+                1: "Individual project pricing",
+                2: "Two-member project pricing",
+                3: "Three-member project pricing"
+            };
+
+            priceDescription.textContent = descriptions[teamSize];
+        }
+
+        // Notify other page scripts that the team size changed.
+        document.dispatchEvent(
+            new CustomEvent("foundev:team-size-changed", {
+                detail: {
+                    teamSize: teamSize
+                }
+            })
+        );
+    }
+
+    teamRadios.forEach(function (radio) {
+        radio.addEventListener("change", updateTeamSize);
+    });
+
+    // Initialize the default selection.
+    updateTeamSize();
+
+});
+</script>
+
+</body>
+</html>

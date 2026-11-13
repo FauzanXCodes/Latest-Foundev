@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Status | Foundev</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 24px;
+            background: #f7f4ef;
+            color: #171717;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 460px;
+            padding: 36px 28px;
+            background: #fff;
+            border: 1px solid #e9e1d8;
+            border-radius: 18px;
+            text-align: center;
+            box-shadow: 0 12px 40px rgba(0,0,0,.06);
+        }
+
+        .icon {
+            width: 64px;
+            height: 64px;
+            display: grid;
+            place-items: center;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background: #f2eee8;
+            font-size: 30px;
+        }
+
+        h1 {
+            margin: 0 0 12px;
+            font-size: 25px;
+        }
+
+        p {
+            color: #68645f;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .status {
+            margin: 22px 0;
+            padding: 14px;
+            border-radius: 10px;
+            background: #f7f4ef;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #18794e;
+            background: #eaf7ef;
+        }
+
+        .pending {
+            color: #93620b;
+            background: #fff6df;
+        }
+
+        .failed {
+            color: #b42318;
+            background: #fff0ee;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            margin-top: 12px;
+            border: 0;
+            border-radius: 9px;
+            background: #93452f;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+
+        .secondary {
+            background: white;
+            color: #333;
+            border: 1px solid #e5ddd5;
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="icon" id="statusIcon">⌛</div>
+
+    <h1 id="statusTitle">Verifying payment</h1>
+
+    <p id="statusDescription">
+        Please wait while we securely verify your payment with Cashfree.
+    </p>
+
+    <div class="status" id="statusBox">
+        Contacting payment server...
+    </div>
+
+    <button id="retryButton" class="hidden" type="button">
+        Retry verification
+    </button>
+
+    <button id="dashboardButton" class="secondary hidden" type="button">
+        Go to dashboard
+    </button>
+
+</div>
+
+<script>
+"use strict";
+
+const VERIFY_API = "./api/admin/verify-project-payment.php";
+
+// Correct institute admin dashboard location
+const DASHBOARD_URL = "./admin/dashboard.html";
+
+const statusIcon = document.getElementById("statusIcon");
+const statusTitle = document.getElementById("statusTitle");
+const statusDescription = document.getElementById("statusDescription");
+const statusBox = document.getElementById("statusBox");
+const retryButton = document.getElementById("retryButton");
+const dashboardButton = document.getElementById("dashboardButton");
+
+const params = new URLSearchParams(window.location.search);
+const orderReference = params.get("order_id");
+
+let verifying = false;
+
+function showStatus(type, title, description, message) {
+    statusBox.className = "status " + type;
+
+    statusIcon.textContent =
+        type === "success" ? "✓" :
+        type === "failed" ? "✕" : "⌛";
+
+    statusTitle.textContent = title;
+    statusDescription.textContent = description;
+    statusBox.textContent = message;
+}
+
+function showRetry() {
+    retryButton.classList.remove("hidden");
+}
+
+async function verifyPayment() {
+    if (verifying) return;
+
+    if (!orderReference) {
+        showStatus(
+            "failed",
+            "Order reference missing",
+            "We could not identify your purchase.",
+            "Please return to your institution dashboard and check your purchases."
+        );
+        return;
+    }
+
+    verifying = true;
+    retryButton.disabled = true;
+    retryButton.classList.add("hidden");
+
+    showStatus(
+        "pending",
+        "Verifying payment",
+        "Please wait while we securely contact Cashfree.",
+        "Checking payment status..."
+    );
+
+    try {
+        const response = await fetch(VERIFY_API, {
+            method: "POST",
+            credentials: "same-origin",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                order_reference: orderReference
+            })
+        });
+
+        const result = await response.json();
+
+        if (!response.ok || result.success !== true) {
+            throw new Error(
+                result.message || "Payment verification failed."
+            );
+        }
+
+        if (result.paid === true) {
+            showStatus(
+                "success",
+                "Payment successful!",
+                "Your payment has been verified by Cashfree.",
+                result.message || "Your project purchase is active."
+            );
+
+            dashboardButton.classList.remove("hidden");
+            return;
+        }
+
+        showStatus(
+            "pending",
+            "Payment not confirmed yet",
+            "Cashfree has not confirmed a successful payment.",
+            result.message || "Please wait and try verification again."
+        );
+
+        showRetry();
+
+    } catch (error) {
+        showStatus(
+            "failed",
+            "Unable to verify payment",
+            "Your payment may still be processing. Do not pay again immediately.",
+            error.message || "Please retry verification."
+        );
+
+        showRetry();
+
+    } finally {
+        verifying = false;
+        retryButton.disabled = false;
+    }
+}
+
+retryButton.addEventListener("click", verifyPayment);
+
+dashboardButton.addEventListener("click", function () {
+    window.location.href = DASHBOARD_URL;
+});
+
+verifyPayment();
+</script>
+
+</body>
+</html>

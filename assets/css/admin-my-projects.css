@@ -1,0 +1,857 @@
+/* =========================================================
+   FOUNDEV — ADMIN MY PROJECTS
+   Page-specific styling
+   Uses shared tokens from institute-layout.css
+========================================================= */
+
+/* ---------------------------------------------------------
+   PAGE LAYOUT
+--------------------------------------------------------- */
+
+.my-projects-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    padding: 37px 40px 22px;
+}
+
+.my-projects-welcome {
+    padding-bottom: 30px;
+}
+
+.my-projects-content .welcome-description {
+    max-width: 620px;
+}
+
+/* ---------------------------------------------------------
+   PROJECT SUMMARY CARDS
+--------------------------------------------------------- */
+
+.my-projects-stats {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 15px;
+}
+
+.my-projects-stats .stat-card {
+    min-height: 190px;
+}
+
+.my-projects-stats .stat-card-students .stat-icon {
+    border-color: #e8d6c8;
+    background: #f5e9df;
+    color: #8b5135;
+}
+
+.my-projects-stats .stat-card-mentors .stat-icon {
+    border-color: #d8e3d8;
+    background: #edf2e9;
+    color: #4b7555;
+}
+
+.my-projects-stats .stat-card-projects .stat-icon {
+    border-color: #d9dced;
+    background: #edf0f8;
+    color: #596c9b;
+}
+
+.my-projects-stats .stat-card-assessments .stat-icon {
+    border-color: #e9dfc8;
+    background: #f7f0df;
+    color: #90733d;
+}
+
+/* ---------------------------------------------------------
+   PROJECT COLLECTION PANEL
+--------------------------------------------------------- */
+
+.my-projects-panel {
+    min-height: 350px;
+    margin-top: 25px;
+    padding: 22px 21px 18px;
+}
+
+.my-projects-panel-heading {
+    align-items: flex-start;
+}
+
+.my-projects-panel-heading .panel-description {
+    max-width: 500px;
+}
+
+.my-projects-panel .panel-live-indicator {
+    flex-shrink: 0;
+}
+
+/* ---------------------------------------------------------
+   SEARCH AND FILTER TOOLBAR
+--------------------------------------------------------- */
+
+.project-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 20px 0;
+}
+
+.project-search {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex: 1;
+    min-width: 180px;
+    max-width: 460px;
+    min-height: 42px;
+    padding: 0 13px;
+    border: 1px solid var(--fd-line);
+    border-radius: 9px;
+    background: var(--fd-surface);
+    color: var(--fd-muted);
+    transition:
+        border-color var(--fd-transition),
+        box-shadow var(--fd-transition);
+}
+
+.project-search:focus-within {
+    border-color: var(--fd-accent);
+    box-shadow: 0 0 0 3px rgba(166, 95, 67, 0.09);
+}
+
+.project-search svg {
+    flex: 0 0 17px;
+    width: 17px;
+    height: 17px;
+}
+
+.project-search input {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--fd-ink);
+    font-size: 11px;
+}
+
+.project-search input::placeholder {
+    color: var(--fd-muted-light);
+}
+
+.project-search input:focus-visible {
+    outline: none;
+}
+
+.project-search input::-webkit-search-cancel-button {
+    cursor: pointer;
+}
+
+.project-filter-label {
+    display: block;
+    flex: 0 0 auto;
+}
+
+.project-filter-label select {
+    min-width: 155px;
+    min-height: 42px;
+    padding: 0 34px 0 12px;
+    border: 1px solid var(--fd-line);
+    border-radius: 9px;
+    background-color: var(--fd-surface);
+    color: var(--fd-ink-soft);
+    font-size: 11px;
+    cursor: pointer;
+    outline: none;
+}
+
+.project-filter-label select:focus-visible {
+    border-color: var(--fd-accent);
+    outline: 3px solid rgba(166, 95, 67, 0.12);
+}
+
+/* ---------------------------------------------------------
+   PROJECT CARD GRID
+--------------------------------------------------------- */
+
+.my-projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+    align-items: stretch;
+}
+
+.my-projects-grid:empty {
+    display: none;
+}
+
+/*
+Expected project card structure:
+article.project-card
+  .project-card-header
+  .project-card-body
+  .project-card-meta
+  .project-card-footer
+*/
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 19px;
+    border: 1px solid var(--fd-line);
+    border-radius: var(--fd-radius-md);
+    background: var(--fd-surface);
+    box-shadow: var(--fd-shadow-card);
+    transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease;
+}
+
+.project-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--fd-line-strong);
+    box-shadow: 0 8px 25px rgba(35, 25, 17, 0.055);
+}
+
+.project-card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.project-card-title-wrap {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-card-domain {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+    color: var(--fd-accent-dark);
+    font-size: 9px;
+    font-weight: 730;
+    letter-spacing: 0.8px;
+    text-transform: uppercase;
+}
+
+.project-card h3,
+.project-card-title {
+    margin: 0;
+    color: var(--fd-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.35px;
+    line-height: 1.35;
+    overflow-wrap: anywhere;
+}
+
+.project-card-description {
+    display: -webkit-box;
+    overflow: hidden;
+    margin: 12px 0 0;
+    color: var(--fd-muted);
+    font-size: 11px;
+    line-height: 1.8;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+}
+
+.project-card-body {
+    flex: 1;
+    min-width: 0;
+}
+
+.project-card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.project-meta-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 6px 8px;
+    border: 1px solid var(--fd-line);
+    border-radius: 6px;
+    background: #faf7f2;
+    color: var(--fd-ink-soft);
+    font-size: 9px;
+    line-height: 1.4;
+}
+
+.project-meta-item svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    color: var(--fd-muted);
+}
+
+.project-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 13px;
+}
+
+.project-tech-tag {
+    padding: 5px 8px;
+    border: 1px solid #e4ded5;
+    border-radius: 5px;
+    background: #f8f5ef;
+    color: #66594e;
+    font-size: 9px;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------
+   ACCESS AND PAYMENT STATUS
+--------------------------------------------------------- */
+
+.project-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    flex-shrink: 0;
+    max-width: 150px;
+    padding: 6px 9px;
+    border: 1px solid transparent;
+    border-radius: 6px;
+    font-size: 9px;
+    font-weight: 680;
+    line-height: 1.4;
+    text-align: center;
+}
+
+.project-status::before {
+    width: 5px;
+    height: 5px;
+    flex: 0 0 5px;
+    border-radius: 50%;
+    background: currentColor;
+    content: "";
+}
+
+.project-status-active {
+    border-color: #d8e8d9;
+    background: #edf5ec;
+    color: #42744b;
+}
+
+.project-status-pending {
+    border-color: #eadfc5;
+    background: #faf3e1;
+    color: #907137;
+}
+
+.project-status-expiring {
+    border-color: #f0d9c4;
+    background: #fcf0e5;
+    color: #a15c30;
+}
+
+.project-status-expired,
+.project-status-failed {
+    border-color: #ebd6d1;
+    background: #fbefed;
+    color: #a44f43;
+}
+
+.project-status-cancelled {
+    border-color: #e4ded7;
+    background: #f4f1ec;
+    color: #766b61;
+}
+
+/* ---------------------------------------------------------
+   PROJECT ACCESS INFORMATION
+--------------------------------------------------------- */
+
+.project-access-info {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 18px;
+    padding: 13px;
+    border: 1px solid #eee7de;
+    border-radius: 9px;
+    background: #fcfaf6;
+}
+
+.project-access-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.project-access-label {
+    color: var(--fd-muted);
+    font-size: 9px;
+}
+
+.project-access-value {
+    color: var(--fd-ink-soft);
+    font-size: 11px;
+    font-weight: 650;
+    overflow-wrap: anywhere;
+}
+
+.project-access-value.is-expiring {
+    color: #a15c30;
+}
+
+.project-access-value.is-expired {
+    color: #a44f43;
+}
+
+/* ---------------------------------------------------------
+   PROJECT CARD FOOTER / ACTIONS
+--------------------------------------------------------- */
+
+.project-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid #eee7de;
+}
+
+.project-card-price {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 0;
+}
+
+.project-card-price-label {
+    color: var(--fd-muted);
+    font-size: 9px;
+}
+
+.project-card-price-value {
+    color: var(--fd-ink);
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    font-weight: 500;
+    overflow-wrap: anywhere;
+}
+
+.project-card-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.project-action-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-height: 35px;
+    padding: 0 12px;
+    border: 1px solid var(--fd-line-strong);
+    border-radius: 7px;
+    background: var(--fd-surface);
+    color: var(--fd-ink-soft);
+    font-size: 10px;
+    font-weight: 650;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        background var(--fd-transition),
+        border-color var(--fd-transition),
+        color var(--fd-transition);
+}
+
+.project-action-button:hover {
+    border-color: #c6a38f;
+    background: #fffaf5;
+    color: var(--fd-accent-dark);
+}
+
+.project-action-button svg {
+    width: 14px;
+    height: 14px;
+}
+
+.project-action-primary {
+    border-color: var(--fd-accent);
+    background: var(--fd-accent);
+    color: #fffaf6;
+}
+
+.project-action-primary:hover {
+    border-color: var(--fd-accent-dark);
+    background: var(--fd-accent-dark);
+    color: #fff;
+}
+
+.project-action-button:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   LOADING STATE
+--------------------------------------------------------- */
+
+.projects-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 170px;
+    color: var(--fd-muted);
+    font-size: 11px;
+}
+
+.loading-spinner {
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--fd-line);
+    border-top-color: var(--fd-accent);
+    border-radius: 50%;
+    animation: my-projects-spin 850ms linear infinite;
+}
+
+@keyframes my-projects-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------------------------------------------------------
+   EMPTY AND ERROR STATES
+--------------------------------------------------------- */
+
+.projects-empty {
+    min-height: 280px;
+    padding: 30px 20px;
+}
+
+.projects-empty .welcome-action-link {
+    margin-top: 15px;
+}
+
+.projects-empty[hidden],
+.projects-loading[hidden],
+.projects-error[hidden],
+.projects-pagination[hidden] {
+    display: none !important;
+}
+
+#projects-error {
+    margin-top: 14px;
+}
+
+#projects-error button {
+    padding: 7px 11px;
+    border: 1px solid #d9b5a7;
+    border-radius: 6px;
+    background: #fffaf6;
+    color: #844b3b;
+    font-size: 10px;
+    cursor: pointer;
+}
+
+#projects-error button:hover {
+    background: #fbf0e9;
+}
+
+/* ---------------------------------------------------------
+   PAGINATION
+--------------------------------------------------------- */
+
+.projects-pagination {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 22px;
+    padding-top: 17px;
+    border-top: 1px solid var(--fd-line);
+}
+
+#projects-pagination-info {
+    color: var(--fd-muted);
+    font-size: 10px;
+}
+
+.projects-pagination-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.projects-pagination-actions button:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+}
+
+/* ---------------------------------------------------------
+   ACCESSIBILITY
+--------------------------------------------------------- */
+
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+.my-projects-content button:focus-visible,
+.my-projects-content a:focus-visible,
+.my-projects-content input:focus-visible,
+.my-projects-content select:focus-visible {
+    outline: 3px solid rgba(166, 95, 67, 0.35);
+    outline-offset: 3px;
+}
+
+/* ---------------------------------------------------------
+   FOOTER
+--------------------------------------------------------- */
+
+.my-projects-content .dashboard-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 28px;
+    padding: 18px 0 5px;
+    border-top: 1px solid var(--fd-line);
+    color: var(--fd-muted);
+    font-size: 10px;
+}
+
+.my-projects-content .footer-brand {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.my-projects-content .footer-brand-mark {
+    display: grid;
+    place-items: center;
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    background: var(--fd-ink);
+    color: #fffaf3;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.my-projects-content .footer-copyright {
+    color: var(--fd-muted);
+}
+
+/* ---------------------------------------------------------
+   TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 1200px) {
+    .my-projects-content {
+        padding-right: 28px;
+        padding-left: 28px;
+    }
+
+    .my-projects-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .my-projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* ---------------------------------------------------------
+   SMALL TABLET
+--------------------------------------------------------- */
+
+@media (max-width: 900px) {
+    .my-projects-content {
+        padding: 29px 22px 20px;
+    }
+
+    .my-projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .my-projects-panel {
+        padding: 19px 17px;
+    }
+
+    .my-projects-panel-heading {
+        flex-wrap: wrap;
+    }
+}
+
+/* ---------------------------------------------------------
+   MOBILE
+--------------------------------------------------------- */
+
+@media (max-width: 600px) {
+    .my-projects-content {
+        padding: 23px 15px 18px;
+    }
+
+    .my-projects-content .dashboard-welcome {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 20px;
+        padding-bottom: 25px;
+    }
+
+    .my-projects-content .welcome-copy {
+        width: 100%;
+    }
+
+    .my-projects-content .dashboard-welcome h1 {
+        font-size: clamp(30px, 9vw, 38px);
+        letter-spacing: -1.2px;
+    }
+
+    .my-projects-content .welcome-actions {
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .my-projects-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .my-projects-stats .stat-card {
+        min-height: 165px;
+        padding: 14px 12px;
+    }
+
+    .my-projects-stats .stat-value {
+        font-size: 29px;
+    }
+
+    .my-projects-stats .stat-icon {
+        flex-basis: 31px;
+        width: 31px;
+        height: 31px;
+    }
+
+    .my-projects-panel {
+        padding: 17px 12px;
+        margin-top: 20px;
+    }
+
+    .my-projects-panel .panel-heading h2 {
+        font-size: 20px;
+    }
+
+    .project-toolbar {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+        margin: 16px 0;
+    }
+
+    .project-search {
+        width: 100%;
+        max-width: none;
+    }
+
+    .project-filter-label,
+    .project-filter-label select {
+        width: 100%;
+    }
+
+    .project-card {
+        padding: 15px;
+    }
+
+    .project-card h3,
+    .project-card-title {
+        font-size: 18px;
+    }
+
+    .project-card-header {
+        gap: 8px;
+    }
+
+    .project-status {
+        max-width: 115px;
+        padding: 5px 7px;
+        font-size: 8px;
+    }
+
+    .project-access-info {
+        gap: 10px;
+        padding: 11px;
+    }
+
+    .project-card-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .project-card-actions {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .project-action-button {
+        min-height: 36px;
+    }
+
+    .projects-pagination {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .projects-pagination-actions {
+        width: 100%;
+    }
+
+    .projects-pagination-actions button {
+        flex: 1;
+    }
+
+    .my-projects-content .dashboard-footer {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+/* ---------------------------------------------------------
+   REDUCED MOTION
+--------------------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+    .my-projects-content *,
+    .my-projects-content *::before,
+    .my-projects-content *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}

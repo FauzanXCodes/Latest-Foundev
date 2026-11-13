@@ -1,0 +1,777 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f4ef">
+    <meta name="description" content="Manage assessments, monitor student submissions, and review assessment progress in the Foundev Institution Workspace.">
+
+    <title>Assessments | Foundev Institution Workspace</title>
+
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="../assets/css/assessments.css">
+</head>
+
+<body class="institution-dashboard">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="institute-app">
+
+        <!-- SIDEBAR: SHARED WORKSPACE STRUCTURE -->
+        <aside class="institute-sidebar" id="institute-sidebar" aria-label="Main navigation">
+
+            <div class="sidebar-top">
+
+                <a href="dashboard.html" class="institute-brand" aria-label="Foundev workspace home">
+                    <span class="brand-mark">
+                        <img src="../assets/images/foundev-logo.png" alt="" class="brand-logo">
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>foundev</strong>
+                        <small>Institution workspace</small>
+                    </span>
+                </a>
+
+                <div class="workspace-switcher">
+                    <span class="workspace-avatar" id="institution-initial">I</span>
+
+                    <span class="workspace-copy">
+                        <small>YOUR WORKSPACE</small>
+                        <strong id="institution-name">Your institution</strong>
+                    </span>
+
+                    <span class="workspace-indicator" aria-hidden="true">⌄</span>
+                </div>
+
+                <p class="sidebar-label">WORKSPACE</p>
+
+                <nav class="sidebar-navigation" aria-label="Workspace">
+
+                    <a href="dashboard.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            </svg>
+                        </span>
+                        <span>Overview</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="students.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="8" r="3.5"/>
+                                <path d="M2.8 20v-1.5a6.2 6.2 0 0 1 12.4 0V20"/>
+                                <path d="M16 5a3.5 3.5 0 0 1 0 6.2"/>
+                                <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                            </svg>
+                        </span>
+                        <span>Students</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="mentors.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="3.5"/>
+                                <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                                <path d="m9 15 3 2 3-2"/>
+                            </svg>
+                        </span>
+                        <span>Mentors</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="projects.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                                <path d="M8 4.5v15"/>
+                                <path d="M8 9h12.5"/>
+                                <path d="M12 13h5"/>
+                                <path d="M12 16h3"/>
+                            </svg>
+                        </span>
+                        <span>Projects</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="assessments.html" class="sidebar-link active" aria-current="page">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                <path d="M14.5 3.5V8H19"/>
+                                <path d="M9 12h6"/>
+                                <path d="M9 16h2"/>
+                                <path d="m13 16 1.5 1.5L18 14"/>
+                            </svg>
+                        </span>
+                        <span>Assessments</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                </nav>
+
+                <p class="sidebar-label sidebar-label-spaced">ADMINISTRATION</p>
+
+                <nav class="sidebar-navigation" aria-label="Administration">
+
+                    <a href="settings.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/>
+                            </svg>
+                        </span>
+                        <span>Settings</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <a href="mailto:support@thefoundev.com" class="sidebar-help">
+                    <span class="help-icon" aria-hidden="true">?</span>
+                    <span>
+                        <strong>Need assistance?</strong>
+                        <small>Contact Foundev support</small>
+                    </span>
+                    <span class="help-arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <div class="sidebar-account">
+
+                    <span class="account-avatar" id="admin-initial">A</span>
+
+                    <span class="account-information">
+                        <strong id="admin-name">Administrator</strong>
+                        <small id="admin-email">Loading account…</small>
+                    </span>
+
+                    <button
+                        type="button"
+                        class="account-menu-button"
+                        id="account-menu-button"
+                        aria-label="Open account menu"
+                        aria-expanded="false"
+                        aria-controls="account-menu"
+                    >···</button>
+
+                    <div class="account-menu" id="account-menu" hidden>
+                        <a href="settings.html">Account settings</a>
+                        <button type="button" id="logout-button">Sign out</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </aside>
+
+        <button
+            type="button"
+            class="sidebar-overlay"
+            id="sidebar-overlay"
+            aria-label="Close navigation"
+            tabindex="-1"
+            hidden
+        ></button>
+
+        <!-- MAIN APPLICATION -->
+        <div class="institute-main">
+
+            <!-- TOPBAR: SHARED WORKSPACE STRUCTURE -->
+            <header class="institute-topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        class="sidebar-toggle"
+                        id="sidebar-toggle"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="institute-sidebar"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"/>
+                            <path d="M4 12h16"/>
+                            <path d="M4 17h16"/>
+                        </svg>
+                    </button>
+
+                    <nav class="breadcrumbs" aria-label="Breadcrumb">
+                        <span>Workspace</span>
+                        <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                        <strong aria-current="page">Assessments</strong>
+                    </nav>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="system-status" id="system-status">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span id="system-status-text">Connecting</span>
+                    </div>
+
+                    <span class="topbar-divider" aria-hidden="true"></span>
+
+                    <time class="topbar-date" id="dashboard-date"></time>
+
+                </div>
+
+            </header>
+
+            <!-- ASSESSMENTS CONTENT -->
+            <main class="dashboard-content assessments-page" id="main-content">
+
+                <!-- PAGE INTRODUCTION -->
+                <section class="assessments-welcome">
+
+                    <div class="assessments-heading-copy">
+
+                        <p class="page-eyebrow">
+                            <span class="eyebrow-line"></span>
+                            ACADEMIC PERFORMANCE
+                        </p>
+
+                        <h1>Assessments<span class="welcome-period">.</span></h1>
+
+                        <p class="assessments-intro">
+                            Keep learning outcomes on track. Monitor assessments,
+                            follow student submissions, and review academic progress
+                            across your institution.
+                        </p>
+
+                    </div>
+
+                    <div class="assessments-heading-actions">
+
+                        <button
+                            type="button"
+                            class="assessments-button assessments-button-secondary"
+                            id="export-assessments-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 3v12"/>
+                                <path d="m7 10 5 5 5-5"/>
+                                <path d="M5 17v3h14v-3"/>
+                            </svg>
+                            <span>Export</span>
+                        </button>
+
+                        <button
+                            type="button"
+                            class="assessments-button assessments-button-primary"
+                            id="add-assessment-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M12 5v14"/>
+                                <path d="M5 12h14"/>
+                            </svg>
+                            <span>Create assessment</span>
+                        </button>
+
+                    </div>
+
+                </section>
+
+                <!-- SUMMARY CARDS -->
+                <section class="assessments-summary" aria-label="Assessment overview">
+
+                    <article class="assessments-summary-card">
+
+                        <div class="assessments-summary-top">
+                            <span class="assessments-summary-label">Total assessments</span>
+
+                            <span class="assessments-summary-icon assessment-icon-total" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                    <path d="M14.5 3.5V8H19"/>
+                                    <path d="M9 12h6"/>
+                                    <path d="M9 16h6"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <p class="assessments-summary-value" id="assessments-total">—</p>
+
+                        <p class="assessments-summary-note">
+                            Assessments registered in your workspace
+                        </p>
+
+                    </article>
+
+                    <article class="assessments-summary-card">
+
+                        <div class="assessments-summary-top">
+                            <span class="assessments-summary-label">Active assessments</span>
+
+                            <span class="assessments-summary-icon assessment-icon-active" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="12" r="9"/>
+                                    <path d="M12 7v5l3 2"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <p class="assessments-summary-value" id="assessments-active">—</p>
+
+                        <p class="assessments-summary-note">
+                            Assessments currently in progress
+                        </p>
+
+                    </article>
+
+                    <article class="assessments-summary-card">
+
+                        <div class="assessments-summary-top">
+                            <span class="assessments-summary-label">Pending review</span>
+
+                            <span class="assessments-summary-icon assessment-icon-review" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                    <path d="M14.5 3.5V8H19"/>
+                                    <path d="M9 12h6"/>
+                                    <path d="M9 16h4"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <p class="assessments-summary-value" id="assessments-pending-review">—</p>
+
+                        <p class="assessments-summary-note">
+                            Submissions awaiting evaluation
+                        </p>
+
+                    </article>
+
+                </section>
+
+                <!-- ASSESSMENT DIRECTORY -->
+                <section class="assessments-directory" aria-labelledby="assessments-directory-title">
+
+                    <div class="assessments-directory-heading">
+
+                        <div>
+                            <p class="section-kicker">ASSESSMENT DIRECTORY</p>
+                            <h2 id="assessments-directory-title">Your assessments</h2>
+
+                            <p class="assessments-directory-description">
+                                View assessment details, check deadlines, and track submission status.
+                            </p>
+                        </div>
+
+                        <button
+                            type="button"
+                            class="assessments-refresh-button"
+                            id="refresh-assessments-button"
+                        >
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M20 7v5h-5"/>
+                                <path d="M4 17v-5h5"/>
+                                <path d="M5.5 9a7 7 0 0 1 11.8-2L20 12"/>
+                                <path d="M4 12l2.7 5a7 7 0 0 0 11.8-2"/>
+                            </svg>
+                            <span>Refresh</span>
+                        </button>
+
+                    </div>
+
+                    <!-- SEARCH AND FILTERS -->
+                    <div class="assessments-toolbar">
+
+                        <div class="assessments-search-wrap">
+
+                            <label for="assessment-search" class="visually-hidden">
+                                Search assessments
+                            </label>
+
+                            <svg viewBox="0 0 24 24" aria-hidden="true">
+                                <circle cx="10.8" cy="10.8" r="6.8"/>
+                                <path d="m16 16 4.5 4.5"/>
+                            </svg>
+
+                            <input
+                                type="search"
+                                id="assessment-search"
+                                name="search"
+                                placeholder="Search by assessment, subject, or mentor…"
+                                maxlength="150"
+                                autocomplete="off"
+                            >
+
+                            <kbd class="assessments-search-shortcut" aria-hidden="true">/</kbd>
+
+                        </div>
+
+                        <div class="assessments-filter-group">
+
+                            <label for="assessment-status-filter" class="visually-hidden">
+                                Filter assessments by status
+                            </label>
+
+                            <select id="assessment-status-filter" name="status">
+                                <option value="all">All statuses</option>
+                                <option value="draft">Draft</option>
+                                <option value="upcoming">Upcoming</option>
+                                <option value="active">Active</option>
+                                <option value="in_progress">In progress</option>
+                                <option value="submitted">Submitted</option>
+                                <option value="under_review">Under review</option>
+                                <option value="completed">Completed</option>
+                                <option value="cancelled">Cancelled</option>
+                            </select>
+
+                            <label for="assessment-sort" class="visually-hidden">
+                                Sort assessments
+                            </label>
+
+                            <select id="assessment-sort" name="sort">
+                                <option value="newest">Newest first</option>
+                                <option value="oldest">Oldest first</option>
+                                <option value="deadline-asc">Nearest deadline</option>
+                                <option value="name-asc">Name A–Z</option>
+                                <option value="name-desc">Name Z–A</option>
+                            </select>
+
+                        </div>
+
+                    </div>
+
+                    <!-- RESULTS BAR -->
+                    <div class="assessments-results-bar">
+
+                        <p id="assessments-results-count" aria-live="polite">
+                            Loading assessment records…
+                        </p>
+
+                        <button
+                            type="button"
+                            id="clear-assessment-filters"
+                            class="assessments-clear-filters"
+                            hidden
+                        >Clear filters</button>
+
+                    </div>
+
+                    <!-- LOADING -->
+                    <div
+                        class="assessments-loading"
+                        id="assessments-loading"
+                        role="status"
+                        aria-live="polite"
+                    >
+                        <span class="assessments-loading-spinner" aria-hidden="true"></span>
+                        <span>Loading assessment records…</span>
+                    </div>
+
+                    <!-- ERROR -->
+                    <div
+                        class="assessments-error"
+                        id="assessments-error"
+                        role="alert"
+                        hidden
+                    >
+
+                        <span class="assessments-error-mark" aria-hidden="true">!</span>
+
+                        <div>
+                            <h3>We couldn't load the assessments</h3>
+
+                            <p id="assessments-error-message">
+                                Please check your connection and try again.
+                            </p>
+
+                            <button
+                                type="button"
+                                id="retry-assessments-button"
+                                class="assessments-button assessments-button-secondary"
+                            >Try again</button>
+                        </div>
+
+                    </div>
+
+                    <!-- EMPTY STATE -->
+                    <div class="assessments-empty" id="assessments-empty" hidden>
+
+                        <span class="assessments-empty-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                <path d="M14.5 3.5V8H19"/>
+                                <path d="M9 12h6"/>
+                                <path d="M9 16h4"/>
+                            </svg>
+                        </span>
+
+                        <h3 id="assessments-empty-title">No assessments yet</h3>
+
+                        <p id="assessments-empty-description">
+                            Create an assessment to begin tracking academic activities and submissions.
+                        </p>
+
+                        <button
+                            type="button"
+                            id="assessments-empty-action"
+                            class="assessments-button assessments-button-primary"
+                        >Create your first assessment</button>
+
+                    </div>
+
+                    <!-- DESKTOP TABLE -->
+                    <div
+                        class="assessments-table-wrap"
+                        id="assessments-table-wrap"
+                        hidden
+                    >
+
+                        <table class="assessments-table">
+
+                            <thead>
+                                <tr>
+                                    <th scope="col">Assessment</th>
+                                    <th scope="col">Subject / Course</th>
+                                    <th scope="col">Mentor</th>
+                                    <th scope="col">Deadline</th>
+                                    <th scope="col">Status</th>
+                                    <th scope="col">
+                                        <span class="visually-hidden">Actions</span>
+                                    </th>
+                                </tr>
+                            </thead>
+
+                            <tbody id="assessments-table-body">
+                                <!-- Populated by assessments.js -->
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                    <!-- MOBILE CARDS -->
+                    <div
+                        class="assessments-mobile-list"
+                        id="assessments-mobile-list"
+                        aria-label="Assessment records"
+                        hidden
+                    >
+                        <!-- Populated by assessments.js -->
+                    </div>
+
+                    <!-- PAGINATION -->
+                    <div
+                        class="assessments-pagination"
+                        id="assessments-pagination"
+                        hidden
+                    >
+
+                        <p id="assessments-pagination-info">
+                            Showing 0 assessments
+                        </p>
+
+                        <div class="assessments-pagination-controls">
+
+                            <button
+                                type="button"
+                                id="assessments-previous-page"
+                                aria-label="Previous page"
+                                disabled
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="m15 18-6-6 6-6"/>
+                                </svg>
+                            </button>
+
+                            <span id="assessments-page-indicator" aria-live="polite">
+                                Page 1
+                            </span>
+
+                            <button
+                                type="button"
+                                id="assessments-next-page"
+                                aria-label="Next page"
+                                disabled
+                            >
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="m9 18 6-6-6-6"/>
+                                </svg>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </section>
+
+                <!-- FOOTER -->
+                <footer class="dashboard-footer">
+
+                    <div class="footer-brand">
+                        <span class="footer-brand-mark">f.</span>
+                        <span>Built for institutions that build futures.</span>
+                    </div>
+
+                    <p class="footer-copyright">
+                        © <span id="current-year">2026</span> Foundev
+                    </p>
+
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- CREATE ASSESSMENT DIALOG -->
+    <dialog
+        class="assessments-dialog"
+        id="add-assessment-dialog"
+        aria-labelledby="assessment-dialog-title"
+    >
+
+        <div class="assessments-dialog-header">
+
+            <div>
+                <p class="section-kicker">ASSESSMENT MANAGEMENT</p>
+                <h2 id="assessment-dialog-title">Create an assessment</h2>
+
+                <p>
+                    Enter the assessment details for your institution.
+                </p>
+            </div>
+
+            <button
+                type="button"
+                class="assessments-dialog-close"
+                data-close-assessment-dialog
+                aria-label="Close dialog"
+            >×</button>
+
+        </div>
+
+        <form id="assessment-form">
+
+            <div class="assessments-form-field">
+                <label for="new-assessment-title">Assessment title</label>
+
+                <input
+                    type="text"
+                    id="new-assessment-title"
+                    name="title"
+                    maxlength="200"
+                    placeholder="e.g. Data Structures Midterm"
+                    required
+                >
+            </div>
+
+            <div class="assessments-form-field">
+                <label for="new-assessment-subject">Subject / Course</label>
+
+                <input
+                    type="text"
+                    id="new-assessment-subject"
+                    name="subject"
+                    maxlength="200"
+                    placeholder="Enter subject or course"
+                    required
+                >
+            </div>
+
+            <div class="assessments-form-field">
+                <label for="new-assessment-mentor">Mentor / Evaluator</label>
+
+                <input
+                    type="text"
+                    id="new-assessment-mentor"
+                    name="mentor_name"
+                    maxlength="200"
+                    placeholder="Enter mentor or evaluator name"
+                >
+            </div>
+
+            <div class="assessments-form-row">
+
+                <div class="assessments-form-field">
+                    <label for="new-assessment-date">Assessment date</label>
+
+                    <input
+                        type="date"
+                        id="new-assessment-date"
+                        name="assessment_date"
+                    >
+                </div>
+
+                <div class="assessments-form-field">
+                    <label for="new-assessment-deadline">Submission deadline</label>
+
+                    <input
+                        type="date"
+                        id="new-assessment-deadline"
+                        name="deadline"
+                    >
+                </div>
+
+            </div>
+
+            <div class="assessments-form-field">
+                <label for="new-assessment-description">Instructions / Description</label>
+
+                <textarea
+                    id="new-assessment-description"
+                    name="description"
+                    rows="4"
+                    maxlength="3000"
+                    placeholder="Add assessment instructions or details"
+                ></textarea>
+            </div>
+
+            <div class="assessments-form-field">
+                <label for="new-assessment-status">Initial status</label>
+
+                <select id="new-assessment-status" name="status">
+                    <option value="draft">Draft</option>
+                    <option value="upcoming">Upcoming</option>
+                    <option value="active">Active</option>
+                </select>
+            </div>
+
+            <p
+                class="assessments-form-message"
+                id="assessment-form-message"
+                role="status"
+                hidden
+            ></p>
+
+            <div class="assessments-dialog-actions">
+
+                <button
+                    type="button"
+                    class="assessments-button assessments-button-secondary"
+                    data-close-assessment-dialog
+                >Cancel</button>
+
+                <button
+                    type="submit"
+                    class="assessments-button assessments-button-primary"
+                    id="save-assessment-button"
+                >Create assessment</button>
+
+            </div>
+
+        </form>
+    </dialog>
+
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/assessments.js" defer></script>
+
+</body>
+</html>

@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#F7F4EF">
+    <meta
+        name="description"
+        content="Manage your institution's students, mentors, projects and learning activity on Foundev."
+    >
+
+    <title>Overview — Foundev Institution</title>
+
+    <!-- Shared institution styles -->
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+
+    <!-- Shared institution interactions -->
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/admin-dashboard.js" defer></script>
+</head>
+
+<body class="institution-dashboard">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+
+<div class="institute-app" id="institute-app">
+
+    <!-- ======================================================
+         SIDEBAR
+    ======================================================= -->
+    <aside
+        class="institute-sidebar"
+        id="institute-sidebar"
+        aria-label="Institution navigation"
+    >
+        <div class="sidebar-top">
+
+            <a href="dashboard.html" class="institute-brand"
+               aria-label="Foundev institution home">
+                <div class="brand-mark">
+    <img
+        src="../assets/images/foundev-logo.png"
+        alt="Foundev"
+        class="brand-logo"
+    >
+</div>
+
+                <span class="brand-copy">
+                    <strong>foundev</strong>
+                    <small>Institution workspace</small>
+                </span>
+            </a>
+
+            <div class="workspace-switcher">
+                <span class="workspace-avatar" aria-hidden="true">I</span>
+
+                <span class="workspace-copy">
+                    <small>YOUR WORKSPACE</small>
+                    <strong id="institution-name">Your institution</strong>
+                </span>
+
+                <span class="workspace-indicator" aria-hidden="true">⌄</span>
+            </div>
+
+            <p class="sidebar-label">WORKSPACE</p>
+
+            <nav class="sidebar-navigation" aria-label="Main navigation">
+
+                <a
+                    class="sidebar-link active"
+                    href="dashboard.html"
+                    aria-current="page"
+                >
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                            <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                        </svg>
+                    </span>
+                    <span>Overview</span>
+                    <span class="nav-current-marker" aria-hidden="true"></span>
+                </a>
+
+                <a class="sidebar-link" href="../admin/students.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="9" cy="8" r="3.5"/>
+                            <path d="M2.8 20v-1.7a6.2 6.2 0 0 1 12.4 0V20"/>
+                            <path d="M16 5.2a3.5 3.5 0 0 1 0 6.8"/>
+                            <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                        </svg>
+                    </span>
+                    <span>Students</span>
+                </a>
+
+                <a class="sidebar-link" href="../admin/mentors.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="7" r="3.5"/>
+                            <path d="M5 20v-1.5a7 7 0 0 1 14 0V20"/>
+                            <path d="m9 13 3 2 3-2"/>
+                        </svg>
+                    </span>
+                    <span>Mentors</span>
+                </a>
+
+                <a class="sidebar-link" href="../admin/projects.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3" y="4" width="18" height="16" rx="2"/>
+                            <path d="M3 9h18M9 9v11"/>
+                            <path d="m12.5 13 2 2-2 2"/>
+                            <path d="M16 17h2"/>
+                        </svg>
+                    </span>
+                    <span>Projects</span>
+                </a>
+
+<a class="sidebar-link" href="admin-my-projects.html">
+    <span class="nav-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M3 9h18M9 9v11"/>
+            <path d="m12.5 13 2 2-2 2"/>
+            <path d="M16 17h2"/>
+        </svg>
+    </span>
+    <span>My Projects</span>
+</a>
+
+                <a class="sidebar-link" href="../admin/assessments.php">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5a1.5 1.5 0 0 1 1.5-1.5Z"/>
+                            <path d="M14.5 3.5V8H19"/>
+                            <path d="m8.5 14 2 2 4-4"/>
+                        </svg>
+                    </span>
+                    <span>Assessments</span>
+                </a>
+
+            </nav>
+
+            <p class="sidebar-label sidebar-label-spaced">MANAGEMENT</p>
+
+            <nav class="sidebar-navigation" aria-label="Institution management">
+
+                <a class="sidebar-link" href="../admin/settings.html">
+                    <span class="nav-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <circle cx="12" cy="12" r="3"/>
+                            <path d="m19.4 15 .1.1a1.8 1.8 0 0 1-2.5 2.5l-.1-.1a1.8 1.8 0 0 0-3 .9v.2a1.8 1.8 0 0 1-3.6 0v-.2a1.8 1.8 0 0 0-3-.9l-.1.1a1.8 1.8 0 0 1-2.5-2.5l.1-.1a1.8 1.8 0 0 0-.9-3H3.7a1.8 1.8 0 0 1 0-3.6h.2a1.8 1.8 0 0 0 .9-3l-.1-.1a1.8 1.8 0 0 1 2.5-2.5l.1.1a1.8 1.8 0 0 0 3-.9v-.2a1.8 1.8 0 0 1 3.6 0v.2a1.8 1.8 0 0 0 3 .9l.1-.1a1.8 1.8 0 0 1 2.5 2.5l-.1.1a1.8 1.8 0 0 0 .9 3h.2a1.8 1.8 0 0 1 0 3.6h-.2a1.8 1.8 0 0 0-.9 3Z"/>
+                        </svg>
+                    </span>
+                    <span>Institution settings</span>
+                </a>
+
+            </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+
+            <a class="sidebar-help" href="mailto:support@thefoundev.com">
+                <span class="help-icon" aria-hidden="true">?</span>
+                <span>
+                    <strong>Need a hand?</strong>
+                    <small>Get help with your workspace</small>
+                </span>
+                <span class="help-arrow" aria-hidden="true">↗</span>
+            </a>
+
+            <div class="sidebar-account">
+                <span class="account-avatar" id="admin-initial"
+                      aria-hidden="true">A</span>
+
+                <span class="account-information">
+                    <strong id="admin-name">Administrator</strong>
+                    <small id="admin-email">Loading account...</small>
+                </span>
+
+                <button
+                    class="account-menu-button"
+                    id="account-menu-button"
+                    type="button"
+                    aria-label="Account options"
+                    aria-expanded="false"
+                    aria-controls="account-menu"
+                >···</button>
+
+                <div class="account-menu" id="account-menu" hidden>
+                    <a href="../admin/settings.html">Account settings</a>
+                    <button id="logout-button" type="button">Sign out</button>
+                </div>
+            </div>
+
+        </div>
+    </aside>
+
+    <!-- Mobile sidebar backdrop -->
+    <button
+        class="sidebar-overlay"
+        id="sidebar-overlay"
+        type="button"
+        aria-label="Close navigation"
+        tabindex="-1"
+        hidden
+    ></button>
+
+    <!-- ======================================================
+         MAIN WORKSPACE
+    ======================================================= -->
+    <main class="institute-main" id="main-content">
+
+        <!-- Top navigation -->
+        <header class="institute-topbar">
+
+            <div class="topbar-left">
+                <button
+                    class="sidebar-toggle"
+                    id="sidebar-toggle"
+                    type="button"
+                    aria-label="Open navigation"
+                    aria-controls="institute-sidebar"
+                    aria-expanded="false"
+                >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M4 7h16M4 12h16M4 17h16"/>
+                    </svg>
+                </button>
+
+                <nav class="breadcrumbs" aria-label="Breadcrumb">
+                    <span>Workspace</span>
+                    <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                    <strong aria-current="page">Overview</strong>
+                </nav>
+            </div>
+
+            <div class="topbar-right">
+                <span class="system-status" id="system-status">
+                    <span class="status-dot" aria-hidden="true"></span>
+                    <span id="system-status-text">Connecting</span>
+                </span>
+
+                <span class="topbar-divider" aria-hidden="true"></span>
+
+                <button
+                    class="topbar-date"
+                    id="topbar-date"
+                    type="button"
+                    aria-label="Current date"
+                >
+                    <span class="date-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24">
+                            <rect x="3.5" y="5" width="17" height="15.5" rx="2"/>
+                            <path d="M7.5 3v4M16.5 3v4M3.5 9.5h17"/>
+                        </svg>
+                    </span>
+                    <span id="dashboard-date">Today</span>
+                </button>
+            </div>
+
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- ==================================================
+                 WELCOME / PAGE INTRO
+            =================================================== -->
+            <section class="dashboard-welcome" aria-labelledby="welcome-title">
+
+                <div class="welcome-copy">
+                    <p class="page-eyebrow">
+                        <span class="eyebrow-line" aria-hidden="true"></span>
+                        YOUR INSTITUTION, AT A GLANCE
+                    </p>
+
+                    <h1 id="welcome-title">
+                        Good to have you here<span class="welcome-period">.</span>
+                    </h1>
+
+                    <p class="welcome-description">
+                        A clear view of your learning community, projects
+                        and the work happening across your institution.
+                    </p>
+
+                    <p class="welcome-personal" id="welcome-personal">
+                        Welcome back, <strong id="welcome-admin-name">Administrator</strong>.
+                    </p>
+                </div>
+
+                <div class="welcome-actions">
+                    <span class="workspace-date-label">YOUR WORKSPACE</span>
+                    <span class="workspace-date-value" id="welcome-date">
+                        Loading date...
+                    </span>
+                    <a class="welcome-action-link" href="../admin/projects.html">
+                        Explore projects <span aria-hidden="true">↗</span>
+                    </a>
+                </div>
+
+            </section>
+
+            <!-- ==================================================
+                 API / LOAD STATUS
+            =================================================== -->
+            <div
+                class="dashboard-notice"
+                id="dashboard-notice"
+                role="status"
+                aria-live="polite"
+                hidden
+            >
+                <span class="notice-indicator" aria-hidden="true"></span>
+                <span id="dashboard-notice-text"></span>
+                <button
+                    id="dismiss-notice"
+                    type="button"
+                    aria-label="Dismiss message"
+                >×</button>
+            </div>
+
+            <!-- ==================================================
+                 KEY METRICS
+            =================================================== -->
+            <section
+                class="dashboard-overview"
+                aria-labelledby="overview-title"
+            >
+
+                <div class="section-heading">
+                    <div>
+                        <p class="section-kicker">THE BIG PICTURE</p>
+                        <h2 id="overview-title">Workspace overview</h2>
+                        <p class="section-description">
+                            The people and programmes that make your institution.
+                        </p>
+                    </div>
+
+                    <button
+                        class="refresh-button"
+                        id="refresh-dashboard"
+                        type="button"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M20 7v5h-5"/>
+                            <path d="M19 12a7.5 7.5 0 0 0-13.3-4.8L4 9"/>
+                            <path d="M4 17v-5h5"/>
+                            <path d="M5 12a7.5 7.5 0 0 0 13.3 4.8L20 15"/>
+                        </svg>
+                        <span>Refresh</span>
+                    </button>
+                </div>
+
+                <div class="stats-grid">
+
+                    <article class="stat-card stat-card-students">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Students</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="9" cy="8" r="3.5"/>
+                                    <path d="M2.8 20v-1.7a6.2 6.2 0 0 1 12.4 0V20"/>
+                                    <path d="M16 5.2a3.5 3.5 0 0 1 0 6.8"/>
+                                    <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="total-students"
+                                    data-stat="students">—</strong>
+                            <span class="stat-unit">people</span>
+                        </div>
+
+                        <p class="stat-description">
+                            Learners in your community
+                        </p>
+
+                        <a class="stat-link" href="../admin/students.html">
+                            View students <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="stat-card stat-card-mentors">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Mentors</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="7" r="3.5"/>
+                                    <path d="M5 20v-1.5a7 7 0 0 1 14 0V20"/>
+                                    <path d="m9 13 3 2 3-2"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="total-mentors"
+                                    data-stat="mentors">—</strong>
+                            <span class="stat-unit">people</span>
+                        </div>
+
+                        <p class="stat-description">
+                            Guides supporting your learners
+                        </p>
+
+                        <a class="stat-link" href="../admin/mentors.html">
+                            Meet your mentors <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="stat-card stat-card-projects">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Projects</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 9h18M9 9v11"/>
+                                    <path d="m12.5 13 2 2-2 2M16 17h2"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="total-projects"
+                                    data-stat="projects">—</strong>
+                            <span class="stat-unit">available</span>
+                        </div>
+
+                        <p class="stat-description">
+                            Opportunities to learn by building
+                        </p>
+
+                        <a class="stat-link" href="../admin/projects.html">
+                            Explore projects <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                    <article class="stat-card stat-card-assessments">
+                        <div class="stat-card-top">
+                            <span class="stat-label">Assessments</span>
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5a1.5 1.5 0 0 1 1.5-1.5Z"/>
+                                    <path d="M14.5 3.5V8H19"/>
+                                    <path d="m8.5 14 2 2 4-4"/>
+                                </svg>
+                            </span>
+                        </div>
+
+                        <div class="stat-value-row">
+                            <strong class="stat-value" id="total-assessments"
+                                    data-stat="assessments">—</strong>
+                            <span class="stat-unit">recorded</span>
+                        </div>
+
+                        <p class="stat-description">
+                            Learning and evaluation activity
+                        </p>
+
+                        <a class="stat-link" href="../admin/assessments.php">
+                            View assessments <span aria-hidden="true">→</span>
+                        </a>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- ==================================================
+                 LOWER DASHBOARD GRID
+            =================================================== -->
+            <div class="dashboard-columns">
+
+                <!-- Activity feed -->
+                <section
+                    class="dashboard-panel activity-panel"
+                    aria-labelledby="activity-title"
+                >
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-kicker">WHAT'S HAPPENING</p>
+                            <h2 id="activity-title">Recent activity</h2>
+                            <p class="panel-description">
+                                A timeline of activity across your workspace.
+                            </p>
+                        </div>
+
+                        <span class="panel-live-indicator">
+                            <span aria-hidden="true"></span>
+                            Live workspace
+                        </span>
+                    </div>
+
+                    <div class="activity-loading" id="activity-loading" hidden>
+                        <span class="loading-spinner" aria-hidden="true"></span>
+                        <span>Loading activity...</span>
+                    </div>
+
+                    <div class="activity-list" id="activity-list"
+                         aria-live="polite"></div>
+
+                    <div class="activity-empty" id="activity-empty" hidden>
+                        <span class="empty-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="9"/>
+                                <path d="M12 7v5l3 2"/>
+                            </svg>
+                        </span>
+                        <h3>Your story starts here</h3>
+                        <p>
+                            When supported activities happen in your workspace,
+                            you'll see them collected here.
+                        </p>
+                    </div>
+
+                    <div class="activity-error" id="activity-error" hidden>
+                        <p>Activity could not be loaded right now.</p>
+                        <button type="button" id="retry-activity">
+                            Try again
+                        </button>
+                    </div>
+                </section>
+
+                <!-- Quick actions -->
+                <section
+                    class="dashboard-panel actions-panel"
+                    aria-labelledby="actions-title"
+                >
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-kicker">GET THINGS DONE</p>
+                            <h2 id="actions-title">Your next move</h2>
+                            <p class="panel-description">
+                                Shortcuts to the tools you use most.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="quick-actions">
+
+                        <a class="quick-action" href="../admin/students.html">
+                            <span class="quick-action-icon action-students"
+                                  aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="9" cy="8" r="3.5"/>
+                                    <path d="M2.8 20v-1.7a6.2 6.2 0 0 1 12.4 0V20"/>
+                                    <path d="M16 5.2a3.5 3.5 0 0 1 0 6.8"/>
+                                    <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                                </svg>
+                            </span>
+
+                            <span class="quick-action-copy">
+                                <strong>Manage students</strong>
+                                <small>Keep your learner community organised</small>
+                            </span>
+
+                            <span class="action-arrow" aria-hidden="true">↗</span>
+                        </a>
+
+                        <a class="quick-action" href="../admin/mentors.html">
+                            <span class="quick-action-icon action-mentors"
+                                  aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <circle cx="12" cy="7" r="3.5"/>
+                                    <path d="M5 20v-1.5a7 7 0 0 1 14 0V20"/>
+                                    <path d="m9 13 3 2 3-2"/>
+                                </svg>
+                            </span>
+
+                            <span class="quick-action-copy">
+                                <strong>Coordinate mentors</strong>
+                                <small>Support guidance and collaboration</small>
+                            </span>
+
+                            <span class="action-arrow" aria-hidden="true">↗</span>
+                        </a>
+
+                        <a class="quick-action" href="../admin/projects.html">
+                            <span class="quick-action-icon action-projects"
+                                  aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <rect x="3" y="4" width="18" height="16" rx="2"/>
+                                    <path d="M3 9h18M9 9v11"/>
+                                    <path d="m12.5 13 2 2-2 2M16 17h2"/>
+                                </svg>
+                            </span>
+
+                            <span class="quick-action-copy">
+                                <strong>Explore projects</strong>
+                                <small>Connect learning with practical work</small>
+                            </span>
+
+                            <span class="action-arrow" aria-hidden="true">↗</span>
+                        </a>
+
+<a class="quick-action" href="admin-my-projects.html">
+    <span class="quick-action-icon action-projects" aria-hidden="true">
+        <svg viewBox="0 0 24 24">
+            <rect x="3" y="4" width="18" height="16" rx="2"/>
+            <path d="M3 9h18M9 9v11"/>
+            <path d="m12.5 13 2 2-2 2"/>
+            <path d="M16 17h2"/>
+        </svg>
+    </span>
+
+    <span class="quick-action-copy">
+        <strong>My Projects</strong>
+        <small>View and manage your institution's projects</small>
+    </span>
+
+    <span class="action-arrow" aria-hidden="true">↗</span>
+</a>
+
+                        <a class="quick-action" href="../admin/assessments.php">
+                            <span class="quick-action-icon action-assessments"
+                                  aria-hidden="true">
+                                <svg viewBox="0 0 24 24">
+                                    <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 5 20V5a1.5 1.5 0 0 1 1.5-1.5Z"/>
+                                    <path d="M14.5 3.5V8H19"/>
+                                    <path d="m8.5 14 2 2 4-4"/>
+                                </svg>
+                            </span>
+
+                            <span class="quick-action-copy">
+                                <strong>Review assessments</strong>
+                                <small>Keep track of learning evaluation</small>
+                            </span>
+
+                            <span class="action-arrow" aria-hidden="true">↗</span>
+                        </a>
+
+                    </div>
+
+                    <a class="panel-footer-link" href="../admin/settings.html">
+                        Fine-tune your institution settings
+                        <span aria-hidden="true">→</span>
+                    </a>
+                </section>
+
+            </div>
+
+            <!-- ==================================================
+                 CLOSING FOOTER
+            =================================================== -->
+            <footer class="dashboard-footer">
+                <div class="footer-brand">
+                    <span class="footer-brand-mark" aria-hidden="true">f.</span>
+                    <span>Thoughtfully built for better learning.</span>
+                </div>
+
+                <span class="footer-copyright">
+                    © <span id="current-year"></span> Foundev
+                </span>
+            </footer>
+
+        </div>
+    </main>
+
+</div>
+
+<!-- The API endpoint is read by admin-dashboard.js -->
+<meta
+    name="dashboard-api"
+    content="../api/admin/admin-dashboard.php"
+>
+
+</body>
+</html>

@@ -1,0 +1,856 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#f7f4ef">
+    <meta name="description" content="Manage your Foundev institution workspace, administrator account, preferences, and security settings.">
+
+    <title>Settings | Foundev Institution Workspace</title>
+
+    <link rel="stylesheet" href="../assets/css/institute-layout.css">
+    <link rel="stylesheet" href="../assets/css/admin-dashboard.css">
+    <link rel="stylesheet" href="../assets/css/settings.css">
+</head>
+
+<body class="institution-dashboard">
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <div class="institute-app">
+
+        <!-- SHARED SIDEBAR -->
+        <aside class="institute-sidebar" id="institute-sidebar" aria-label="Main navigation">
+
+            <div class="sidebar-top">
+
+                <a href="dashboard.html" class="institute-brand" aria-label="Foundev workspace home">
+                    <span class="brand-mark">
+                        <img src="../assets/images/foundev-logo.png" alt="" class="brand-logo">
+                    </span>
+
+                    <span class="brand-copy">
+                        <strong>foundev</strong>
+                        <small>Institution workspace</small>
+                    </span>
+                </a>
+
+                <div class="workspace-switcher">
+                    <span class="workspace-avatar" id="institution-initial">I</span>
+
+                    <span class="workspace-copy">
+                        <small>YOUR WORKSPACE</small>
+                        <strong id="institution-name">Your institution</strong>
+                    </span>
+
+                    <span class="workspace-indicator" aria-hidden="true">⌄</span>
+                </div>
+
+                <p class="sidebar-label">WORKSPACE</p>
+
+                <nav class="sidebar-navigation" aria-label="Workspace">
+
+                    <a href="dashboard.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="3.5" width="7" height="7" rx="1.5"/>
+                                <rect x="3.5" y="13.5" width="7" height="7" rx="1.5"/>
+                                <rect x="13.5" y="13.5" width="7" height="7" rx="1.5"/>
+                            </svg>
+                        </span>
+                        <span>Overview</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="students.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="9" cy="8" r="3.5"/>
+                                <path d="M2.8 20v-1.5a6.2 6.2 0 0 1 12.4 0V20"/>
+                                <path d="M16 5a3.5 3.5 0 0 1 0 6.2"/>
+                                <path d="M18 14a5.2 5.2 0 0 1 3.2 4.8V20"/>
+                            </svg>
+                        </span>
+                        <span>Students</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="mentors.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="3.5"/>
+                                <path d="M4 20v-1.5a8 8 0 0 1 16 0V20"/>
+                                <path d="m9 15 3 2 3-2"/>
+                            </svg>
+                        </span>
+                        <span>Mentors</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="projects.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="3.5" y="4.5" width="17" height="15" rx="2"/>
+                                <path d="M8 4.5v15"/>
+                                <path d="M8 9h12.5"/>
+                                <path d="M12 13h5"/>
+                                <path d="M12 16h3"/>
+                            </svg>
+                        </span>
+                        <span>Projects</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                    <a href="assessments.html" class="sidebar-link">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M7 3.5h8l4 4V20a1.5 1.5 0 0 1-1.5 1.5h-10A1.5 1.5 0 0 1 6 20V5a1.5 1.5 0 0 1 1-1.5Z"/>
+                                <path d="M14.5 3.5V8H19"/>
+                                <path d="M9 12h6"/>
+                                <path d="M9 16h2"/>
+                                <path d="m13 16 1.5 1.5L18 14"/>
+                            </svg>
+                        </span>
+                        <span>Assessments</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                </nav>
+
+                <p class="sidebar-label sidebar-label-spaced">ADMINISTRATION</p>
+
+                <nav class="sidebar-navigation" aria-label="Administration">
+
+                    <a href="settings.html" class="sidebar-link active" aria-current="page">
+                        <span class="nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="m19.4 15 .1.1a1.7 1.7 0 0 1-2.4 2.4l-.1-.1a1.7 1.7 0 0 0-2.9 1.2v.2a1.7 1.7 0 0 1-3.4 0v-.2a1.7 1.7 0 0 0-2.9-1.2l-.1.1a1.7 1.7 0 0 1-2.4-2.4l.1-.1a1.7 1.7 0 0 0-1.2-2.9H4a1.7 1.7 0 0 1 0-3.4h.2a1.7 1.7 0 0 0 1.2-2.9l-.1-.1a1.7 1.7 0 0 1 2.4-2.4l.1.1a1.7 1.7 0 0 0 2.9-1.2V2a1.7 1.7 0 0 1 3.4 0v.2a1.7 1.7 0 0 0 2.9 1.2l.1-.1a1.7 1.7 0 0 1 2.4 2.4l-.1.1a1.7 1.7 0 0 0 1.2 2.9h.2a1.7 1.7 0 0 1 0 3.4h-.2a1.7 1.7 0 0 0-1.2 2.9Z"/>
+                            </svg>
+                        </span>
+                        <span>Settings</span>
+                        <span class="nav-current-marker"></span>
+                    </a>
+
+                </nav>
+
+            </div>
+
+            <div class="sidebar-bottom">
+
+                <a href="mailto:support@thefoundev.com" class="sidebar-help">
+                    <span class="help-icon" aria-hidden="true">?</span>
+                    <span>
+                        <strong>Need assistance?</strong>
+                        <small>Contact Foundev support</small>
+                    </span>
+                    <span class="help-arrow" aria-hidden="true">↗</span>
+                </a>
+
+                <div class="sidebar-account">
+
+                    <span class="account-avatar" id="admin-initial">A</span>
+
+                    <span class="account-information">
+                        <strong id="admin-name">Administrator</strong>
+                        <small id="admin-email">Loading account…</small>
+                    </span>
+
+                    <button
+                        type="button"
+                        class="account-menu-button"
+                        id="account-menu-button"
+                        aria-label="Open account menu"
+                        aria-expanded="false"
+                        aria-controls="account-menu"
+                    >···</button>
+
+                    <div class="account-menu" id="account-menu" hidden>
+                        <a href="settings.html">Account settings</a>
+                        <button type="button" id="logout-button">Sign out</button>
+                    </div>
+
+                </div>
+
+            </div>
+        </aside>
+
+        <button
+            type="button"
+            class="sidebar-overlay"
+            id="sidebar-overlay"
+            aria-label="Close navigation"
+            tabindex="-1"
+            hidden
+        ></button>
+
+        <!-- MAIN APPLICATION -->
+        <div class="institute-main">
+
+            <!-- SHARED TOPBAR -->
+            <header class="institute-topbar">
+
+                <div class="topbar-left">
+
+                    <button
+                        type="button"
+                        class="sidebar-toggle"
+                        id="sidebar-toggle"
+                        aria-label="Open navigation"
+                        aria-expanded="false"
+                        aria-controls="institute-sidebar"
+                    >
+                        <svg viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M4 7h16"/>
+                            <path d="M4 12h16"/>
+                            <path d="M4 17h16"/>
+                        </svg>
+                    </button>
+
+                    <nav class="breadcrumbs" aria-label="Breadcrumb">
+                        <span>Workspace</span>
+                        <span class="breadcrumb-divider" aria-hidden="true">/</span>
+                        <strong aria-current="page">Settings</strong>
+                    </nav>
+
+                </div>
+
+                <div class="topbar-right">
+
+                    <div class="system-status" id="system-status">
+                        <span class="status-dot" aria-hidden="true"></span>
+                        <span id="system-status-text">Connecting</span>
+                    </div>
+
+                    <span class="topbar-divider" aria-hidden="true"></span>
+
+                    <time class="topbar-date" id="dashboard-date"></time>
+
+                </div>
+
+            </header>
+
+            <!-- SETTINGS CONTENT -->
+            <main class="dashboard-content settings-page" id="main-content">
+
+                <!-- PAGE INTRODUCTION -->
+                <section class="settings-welcome">
+
+                    <div class="settings-heading-copy">
+                        <p class="page-eyebrow">
+                            <span class="eyebrow-line"></span>
+                            WORKSPACE CONFIGURATION
+                        </p>
+
+                        <h1>Settings<span class="welcome-period">.</span></h1>
+
+                        <p class="settings-intro">
+                            Manage your institution profile, administrator account,
+                            preferences, and security from one place.
+                        </p>
+                    </div>
+
+                    <div class="settings-heading-actions">
+                        <span class="settings-save-indicator" id="settings-save-indicator">
+                            <span class="settings-save-dot" aria-hidden="true"></span>
+                            <span id="settings-save-status">Your workspace settings</span>
+                        </span>
+                    </div>
+
+                </section>
+
+                <!-- SETTINGS NAVIGATION -->
+                <nav class="settings-section-nav" aria-label="Settings sections">
+                    <a href="#institution-section" class="settings-section-link active">
+                        <span class="settings-nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M3 21h18"/>
+                                <path d="M5 21V5l7-3 7 3v16"/>
+                                <path d="M9 9h1"/>
+                                <path d="M14 9h1"/>
+                                <path d="M9 13h1"/>
+                                <path d="M14 13h1"/>
+                                <path d="M10 21v-4h4v4"/>
+                            </svg>
+                        </span>
+                        Institution
+                    </a>
+
+                    <a href="#administrator-section" class="settings-section-link">
+                        <span class="settings-nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <circle cx="12" cy="8" r="4"/>
+                                <path d="M4 21v-2a8 8 0 0 1 16 0v2"/>
+                            </svg>
+                        </span>
+                        Administrator
+                    </a>
+
+                    <a href="#preferences-section" class="settings-section-link">
+                        <span class="settings-nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                                <path d="M10 21h4"/>
+                            </svg>
+                        </span>
+                        Preferences
+                    </a>
+
+                    <a href="#security-section" class="settings-section-link">
+                        <span class="settings-nav-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24">
+                                <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                <path d="M8 10V7a4 4 0 1 1 8 0v3"/>
+                                <path d="M12 14v3"/>
+                            </svg>
+                        </span>
+                        Security
+                    </a>
+                </nav>
+
+                <!-- LOADING STATE -->
+                <div class="settings-loading" id="settings-loading" role="status">
+                    <span class="settings-loading-spinner" aria-hidden="true"></span>
+                    <span>Loading workspace settings…</span>
+                </div>
+
+                <!-- ERROR STATE -->
+                <div class="settings-alert settings-alert-error" id="settings-error" role="alert" hidden>
+                    <span class="settings-alert-icon" aria-hidden="true">!</span>
+                    <div>
+                        <h3>Unable to load settings</h3>
+                        <p id="settings-error-message">
+                            Please try again.
+                        </p>
+                        <button type="button" class="settings-button settings-button-secondary" id="retry-settings-button">
+                            Try again
+                        </button>
+                    </div>
+                </div>
+
+                <!-- SETTINGS FORM -->
+                <form id="settings-form" hidden>
+
+                    <!-- INSTITUTION PROFILE -->
+                    <section
+                        class="settings-card"
+                        id="institution-section"
+                        aria-labelledby="institution-section-title"
+                    >
+
+                        <div class="settings-card-header">
+                            <div class="settings-card-heading">
+                                <span class="settings-card-icon settings-icon-institution" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M3 21h18"/>
+                                        <path d="M5 21V5l7-3 7 3v16"/>
+                                        <path d="M9 9h1"/>
+                                        <path d="M14 9h1"/>
+                                        <path d="M9 13h1"/>
+                                        <path d="M14 13h1"/>
+                                        <path d="M10 21v-4h4v4"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+                                    <h2 id="institution-section-title">Institution profile</h2>
+                                    <p>Manage the information associated with your institution.</p>
+                                </div>
+                            </div>
+
+                            <span class="settings-section-number">01</span>
+                        </div>
+
+                        <div class="settings-card-body">
+
+                            <div class="settings-profile-banner">
+                                <div class="settings-institution-avatar" id="settings-institution-avatar">
+                                    I
+                                </div>
+
+                                <div class="settings-profile-copy">
+                                    <strong id="settings-institution-display-name">Your institution</strong>
+                                    <span>Institution workspace profile</span>
+                                </div>
+
+                                <span class="settings-profile-badge" id="institution-status-badge">
+                                    <span class="settings-badge-dot" aria-hidden="true"></span>
+                                    Workspace
+                                </span>
+                            </div>
+
+                            <div class="settings-fields-grid">
+
+                                <div class="settings-field">
+                                    <label for="institution-name-input">Institution name</label>
+                                    <input
+                                        type="text"
+                                        id="institution-name-input"
+                                        name="institution_name"
+                                        maxlength="200"
+                                        placeholder="Enter institution name"
+                                        autocomplete="organization"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="settings-field">
+                                    <label for="institution-email-input">Official email</label>
+                                    <input
+                                        type="email"
+                                        id="institution-email-input"
+                                        name="institution_email"
+                                        maxlength="254"
+                                        placeholder="admin@institution.edu"
+                                        autocomplete="email"
+                                    >
+                                </div>
+
+                                <div class="settings-field">
+                                    <label for="institution-phone-input">Contact number</label>
+                                    <input
+                                        type="tel"
+                                        id="institution-phone-input"
+                                        name="institution_phone"
+                                        maxlength="30"
+                                        placeholder="+91 00000 00000"
+                                        autocomplete="tel"
+                                    >
+                                </div>
+
+                                <div class="settings-field">
+                                    <label for="institution-website-input">Website</label>
+                                    <input
+                                        type="url"
+                                        id="institution-website-input"
+                                        name="institution_website"
+                                        maxlength="255"
+                                        placeholder="https://yourinstitution.edu"
+                                        autocomplete="url"
+                                    >
+                                </div>
+
+                                <div class="settings-field settings-field-full">
+                                    <label for="institution-address-input">Institution address</label>
+                                    <textarea
+                                        id="institution-address-input"
+                                        name="institution_address"
+                                        rows="3"
+                                        maxlength="1000"
+                                        placeholder="Enter the complete institution address"
+                                        autocomplete="street-address"
+                                    ></textarea>
+                                </div>
+
+                            </div>
+
+                            <div class="settings-card-footer">
+                                <p>Keep your institution contact information up to date.</p>
+                                <button
+                                    type="button"
+                                    class="settings-button settings-button-primary"
+                                    id="save-institution-button"
+                                >
+                                    Save institution
+                                </button>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- ADMINISTRATOR ACCOUNT -->
+                    <section
+                        class="settings-card"
+                        id="administrator-section"
+                        aria-labelledby="administrator-section-title"
+                    >
+
+                        <div class="settings-card-header">
+                            <div class="settings-card-heading">
+                                <span class="settings-card-icon settings-icon-administrator" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <circle cx="12" cy="8" r="4"/>
+                                        <path d="M4 21v-2a8 8 0 0 1 16 0v2"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+                                    <h2 id="administrator-section-title">Administrator account</h2>
+                                    <p>Manage the details used to identify your workspace administrator.</p>
+                                </div>
+                            </div>
+
+                            <span class="settings-section-number">02</span>
+                        </div>
+
+                        <div class="settings-card-body">
+
+                            <div class="settings-fields-grid">
+
+                                <div class="settings-field">
+                                    <label for="administrator-name-input">Full name</label>
+                                    <input
+                                        type="text"
+                                        id="administrator-name-input"
+                                        name="administrator_name"
+                                        maxlength="150"
+                                        placeholder="Enter administrator name"
+                                        autocomplete="name"
+                                        required
+                                    >
+                                </div>
+
+                                <div class="settings-field">
+                                    <label for="administrator-email-input">Email address</label>
+                                    <input
+                                        type="email"
+                                        id="administrator-email-input"
+                                        name="administrator_email"
+                                        maxlength="254"
+                                        placeholder="Enter administrator email"
+                                        autocomplete="email"
+                                        required
+                                    >
+                                    <small>Email changes may require verification, depending on your backend.</small>
+                                </div>
+
+                            </div>
+
+                            <div class="settings-inline-note">
+                                <span class="settings-inline-note-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="9"/>
+                                        <path d="M12 11v5"/>
+                                        <path d="M12 7h.01"/>
+                                    </svg>
+                                </span>
+                                <p>
+                                    Your administrator account controls access to this institution workspace.
+                                    Only update account details you are authorised to change.
+                                </p>
+                            </div>
+
+                            <div class="settings-card-footer">
+                                <p>Changes should reflect in your workspace account.</p>
+                                <button
+                                    type="button"
+                                    class="settings-button settings-button-primary"
+                                    id="save-administrator-button"
+                                >
+                                    Save account
+                                </button>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- NOTIFICATION PREFERENCES -->
+                    <section
+                        class="settings-card"
+                        id="preferences-section"
+                        aria-labelledby="preferences-section-title"
+                    >
+
+                        <div class="settings-card-header">
+                            <div class="settings-card-heading">
+                                <span class="settings-card-icon settings-icon-preferences" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"/>
+                                        <path d="M10 21h4"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+                                    <h2 id="preferences-section-title">Notification preferences</h2>
+                                    <p>Choose which workspace updates you want to receive.</p>
+                                </div>
+                            </div>
+
+                            <span class="settings-section-number">03</span>
+                        </div>
+
+                        <div class="settings-card-body">
+
+                            <div class="settings-preference-list">
+
+                                <label class="settings-preference-row" for="notify-assessments">
+                                    <span class="settings-preference-copy">
+                                        <strong>Assessment updates</strong>
+                                        <span>Receive notifications about new or updated assessments.</span>
+                                    </span>
+
+                                    <span class="settings-switch">
+                                        <input
+                                            type="checkbox"
+                                            id="notify-assessments"
+                                            name="notify_assessments"
+                                            checked
+                                        >
+                                        <span class="settings-switch-track" aria-hidden="true"></span>
+                                    </span>
+                                </label>
+
+                                <label class="settings-preference-row" for="notify-submissions">
+                                    <span class="settings-preference-copy">
+                                        <strong>Student submissions</strong>
+                                        <span>Get notified when students submit projects or assessments.</span>
+                                    </span>
+
+                                    <span class="settings-switch">
+                                        <input
+                                            type="checkbox"
+                                            id="notify-submissions"
+                                            name="notify_submissions"
+                                            checked
+                                        >
+                                        <span class="settings-switch-track" aria-hidden="true"></span>
+                                    </span>
+                                </label>
+
+                                <label class="settings-preference-row" for="notify-projects">
+                                    <span class="settings-preference-copy">
+                                        <strong>Project activity</strong>
+                                        <span>Receive updates about project progress and review activity.</span>
+                                    </span>
+
+                                    <span class="settings-switch">
+                                        <input
+                                            type="checkbox"
+                                            id="notify-projects"
+                                            name="notify_projects"
+                                            checked
+                                        >
+                                        <span class="settings-switch-track" aria-hidden="true"></span>
+                                    </span>
+                                </label>
+
+                                <label class="settings-preference-row" for="notify-mentors">
+                                    <span class="settings-preference-copy">
+                                        <strong>Mentor updates</strong>
+                                        <span>Receive important updates related to institute mentors.</span>
+                                    </span>
+
+                                    <span class="settings-switch">
+                                        <input
+                                            type="checkbox"
+                                            id="notify-mentors"
+                                            name="notify_mentors"
+                                            checked
+                                        >
+                                        <span class="settings-switch-track" aria-hidden="true"></span>
+                                    </span>
+                                </label>
+
+                            </div>
+
+                            <div class="settings-card-footer">
+                                <p>Notification delivery depends on your backend and email configuration.</p>
+                                <button
+                                    type="button"
+                                    class="settings-button settings-button-primary"
+                                    id="save-preferences-button"
+                                >
+                                    Save preferences
+                                </button>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- SECURITY -->
+                    <section
+                        class="settings-card"
+                        id="security-section"
+                        aria-labelledby="security-section-title"
+                    >
+
+                        <div class="settings-card-header">
+                            <div class="settings-card-heading">
+                                <span class="settings-card-icon settings-icon-security" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                        <path d="M8 10V7a4 4 0 1 1 8 0v3"/>
+                                        <path d="M12 14v3"/>
+                                    </svg>
+                                </span>
+
+                                <div>
+                                    <h2 id="security-section-title">Security</h2>
+                                    <p>Protect administrator access to your institution workspace.</p>
+                                </div>
+                            </div>
+
+                            <span class="settings-section-number">04</span>
+                        </div>
+
+                        <div class="settings-card-body">
+
+                            <div class="settings-security-item">
+                                <span class="settings-security-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <rect x="4" y="10" width="16" height="11" rx="2"/>
+                                        <path d="M8 10V7a4 4 0 1 1 8 0v3"/>
+                                    </svg>
+                                </span>
+
+                                <div class="settings-security-copy">
+                                    <strong>Password</strong>
+                                    <span>Change your administrator password to help keep your account secure.</span>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="settings-button settings-button-secondary"
+                                    id="open-password-dialog-button"
+                                >
+                                    Change password
+                                </button>
+                            </div>
+
+                            <div class="settings-security-item">
+                                <span class="settings-security-icon settings-security-icon-soft" aria-hidden="true">
+                                    <svg viewBox="0 0 24 24">
+                                        <circle cx="12" cy="12" r="9"/>
+                                        <path d="M12 7v5l3 2"/>
+                                    </svg>
+                                </span>
+
+                                <div class="settings-security-copy">
+                                    <strong>Current session</strong>
+                                    <span>Sign out when using a shared or public computer.</span>
+                                </div>
+
+                                <button
+                                    type="button"
+                                    class="settings-button settings-button-secondary"
+                                    id="settings-logout-button"
+                                >
+                                    Sign out
+                                </button>
+                            </div>
+
+                            <div class="settings-security-note">
+                                <svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <path d="M12 3 20 6v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3Z"/>
+                                    <path d="m9 12 2 2 4-4"/>
+                                </svg>
+                                <p>
+                                    Foundev should verify your identity on the server before changing
+                                    passwords or ending a session.
+                                </p>
+                            </div>
+
+                        </div>
+                    </section>
+
+                    <!-- GLOBAL SAVE / FEEDBACK -->
+                    <div class="settings-form-feedback" id="settings-form-feedback" role="status" hidden></div>
+
+                </form>
+
+                <!-- PAGE FOOTER -->
+                <footer class="dashboard-footer">
+
+                    <div class="footer-brand">
+                        <span class="footer-brand-mark">f.</span>
+                        <span>Built for institutions that build futures.</span>
+                    </div>
+
+                    <p class="footer-copyright">
+                        © <span id="current-year">2026</span> Foundev
+                    </p>
+
+                </footer>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- CHANGE PASSWORD DIALOG -->
+    <dialog
+        class="settings-dialog"
+        id="change-password-dialog"
+        aria-labelledby="password-dialog-title"
+    >
+
+        <div class="settings-dialog-header">
+            <div>
+                <p class="section-kicker">ACCOUNT SECURITY</p>
+                <h2 id="password-dialog-title">Change password</h2>
+                <p>Choose a strong password that you do not use elsewhere.</p>
+            </div>
+
+            <button
+                type="button"
+                class="settings-dialog-close"
+                data-close-password-dialog
+                aria-label="Close dialog"
+            >×</button>
+        </div>
+
+        <form id="change-password-form">
+
+            <div class="settings-field">
+                <label for="current-password">Current password</label>
+                <input
+                    type="password"
+                    id="current-password"
+                    name="current_password"
+                    autocomplete="current-password"
+                    required
+                >
+            </div>
+
+            <div class="settings-field">
+                <label for="new-password">New password</label>
+                <input
+                    type="password"
+                    id="new-password"
+                    name="new_password"
+                    minlength="10"
+                    maxlength="128"
+                    autocomplete="new-password"
+                    required
+                >
+                <small>Use at least 10 characters.</small>
+            </div>
+
+            <div class="settings-field">
+                <label for="confirm-password">Confirm new password</label>
+                <input
+                    type="password"
+                    id="confirm-password"
+                    name="confirm_password"
+                    minlength="10"
+                    maxlength="128"
+                    autocomplete="new-password"
+                    required
+                >
+            </div>
+
+            <p class="settings-dialog-message" id="password-form-message" role="status" hidden></p>
+
+            <div class="settings-dialog-actions">
+                <button
+                    type="button"
+                    class="settings-button settings-button-secondary"
+                    data-close-password-dialog
+                >Cancel</button>
+
+                <button
+                    type="submit"
+                    class="settings-button settings-button-primary"
+                    id="change-password-submit"
+                >Update password</button>
+            </div>
+
+        </form>
+    </dialog>
+
+    <script src="../assets/js/institute-layout.js" defer></script>
+    <script src="../assets/js/settings.js" defer></script>
+
+</body>
+</html>
